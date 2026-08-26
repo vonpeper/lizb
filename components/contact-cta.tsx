@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { PROFILE_DATA } from "@/data/profile";
 import { ArrowUp, ArrowUpRight, Mail, Copy, Check, Sparkles } from "lucide-react";
 
@@ -11,17 +11,6 @@ interface ContactCtaProps {
 
 export function ContactCta({ onOpenContact }: ContactCtaProps) {
   const [copied, setCopied] = useState(false);
-  const [offsetY, setOffsetY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.innerWidth >= 768) {
-        setOffsetY(window.pageYOffset);
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PROFILE_DATA.contact.email);
@@ -40,24 +29,21 @@ export function ContactCta({ onOpenContact }: ContactCtaProps) {
   return (
     <section
       id="contacto"
-      className="relative py-28 lg:py-36 overflow-hidden flex items-center justify-center text-center text-white"
+      className="relative py-24 lg:py-32 overflow-hidden flex items-center justify-center text-center text-white"
       aria-label="Llamado a la acción y contacto"
     >
-      {/* Panoramic Mountain Sunset Parallax Background */}
+      {/* Full-bleed Panoramic Mountain Sunset Background (100% Full Coverage) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div
-          className="relative w-full h-[135%] -top-[18%] transition-transform duration-100 ease-out"
-          style={{ transform: `translateY(${offsetY * 0.05}px)` }}
-        >
-          <Image
-            src="/images/cta-sunset.jpg"
-            alt="Atardecer en las montañas del Estado de México"
-            fill
-            className="object-cover object-center"
-          />
-        </div>
-        {/* Apple-style Warm Gradient Overlay for Clean Legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/80 to-[#181412]/50 backdrop-blur-[1px]" />
+        <Image
+          src="/images/cta-sunset.jpg"
+          alt="Atardecer en las montañas del Estado de México"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Elegant Warm Gradient Overlay for High Contrast and Perfect Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/80 to-[#181412]/60" />
       </div>
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-8">
