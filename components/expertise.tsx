@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PROFILE_DATA } from "@/data/profile";
-import { Scale, FileCheck2, Building2, BookOpen, Sparkles, CheckCircle2, ArrowRight } from "lucide-react";
+import { Scale, FileCheck2, BookOpen, Sparkles, CheckCircle2, ArrowRight } from "lucide-react";
 
 export function Expertise() {
   const [selectedId, setSelectedId] = useState<string>("exp-1");
@@ -10,7 +10,6 @@ export function Expertise() {
   const iconMap: Record<string, React.ReactNode> = {
     "exp-1": <Scale className="w-6 h-6 text-[#B94F3D]" />,
     "exp-2": <FileCheck2 className="w-6 h-6 text-[#B94F3D]" />,
-    "exp-3": <Building2 className="w-6 h-6 text-[#B94F3D]" />,
     "exp-4": <BookOpen className="w-6 h-6 text-[#B94F3D]" />,
   };
 
@@ -28,7 +27,7 @@ export function Expertise() {
         <div className="max-w-3xl space-y-3 mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF6F2] border border-[#EADDD8] text-[#B94F3D] text-xs font-extrabold tracking-wider uppercase shadow-subtle">
             <Sparkles className="w-3.5 h-3.5 text-[#E88771]" />
-            <span>4 Pilares de Ejercicio</span>
+            <span>3 Pilares de Ejercicio</span>
           </div>
           <h2 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#181412]">
             Especialidad Jurídica & Municipal
@@ -38,8 +37,8 @@ export function Expertise() {
           </p>
         </div>
 
-        {/* 4 Feature Cards Grid: Clean, High-Contrast & Modern */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {/* 3 Feature Cards Grid: Balanced 3-Column Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {items.map((item) => {
             const isHovered = selectedId === item.id;
             return (

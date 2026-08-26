@@ -121,7 +121,7 @@ export const PROFILE_DATA: ProfileData = {
   site: {
     title: "Lizbeth Bernal Segundo | Abogada & Síndica Municipal",
     description:
-      "Sitio profesional de Lizbeth Bernal Segundo. Abogada y Síndica Municipal en Villa de Allende, Estado de México (2025–Presente). Maestría en Administración Pública en curso (UVM).",
+      "Sitio oficial de Lizbeth Bernal Segundo. Abogada y Síndica Municipal en Villa de Allende, Estado de México. Licenciada en Derecho (ISIMA) y Maestrante en Administración Pública (UVM Metepec).",
     domain: "lizbernal.mx",
     url: "https://lizbernal.mx",
     keywords: [
@@ -157,7 +157,7 @@ export const PROFILE_DATA: ProfileData = {
         headline: "Defensa jurídica y fiscalización institucional",
         bullets: [
           "Representación legal del H. Ayuntamiento en controversias",
-          "Revisión y vigilancia de cortes de caja y hacienda pública",
+          "Revisión y vigilancia de acuerdos y legalidad municipal",
           "Actualización del inventario de bienes muebles e inmuebles",
         ],
       },
@@ -211,18 +211,6 @@ export const PROFILE_DATA: ProfileData = {
       ],
     },
     {
-      id: "exp-3",
-      title: "Vigilancia de la Hacienda Pública",
-      tag: "Control Financiero",
-      summary: "Supervisión de cortes de caja y presupuestos.",
-      image: "/images/mexican-law-expedientes-tomo.jpg",
-      points: [
-        "Revisión mensual de ingresos y egresos de Tesorería",
-        "Fiscalización de cuentas públicas municipales",
-        "Supervisión de contratos de obra y adquisiciones",
-      ],
-    },
-    {
       id: "exp-4",
       title: "Técnica Procesal y Litigio",
       tag: "Práctica Forense",
@@ -248,7 +236,7 @@ export const PROFILE_DATA: ProfileData = {
       highlights: [
         "Defensa legal del Ayuntamiento",
         "Control del inventario patrimonial",
-        "Vigilancia de la Hacienda Municipal",
+        "Representación institucional en Cabildo",
       ],
     },
     {
@@ -302,7 +290,7 @@ export const PROFILE_DATA: ProfileData = {
       institution: "ISIMA Universidad",
       campus: "Toluca, Estado de México",
       period: "2019 – 2022",
-      image: "/images/mexican-law-codigo-nacional.jpg",
+      image: "/images/mexican-law-balanza-libros.png",
       status: "completed",
       statusLabel: "Concluida con Título",
       highlights: [
@@ -319,7 +307,7 @@ export const PROFILE_DATA: ProfileData = {
       category: "cabildo",
       categoryLabel: "Cabildo & Sindicatura",
       date: "2025 · Villa de Allende",
-      image: "/images/mexican-law-expedientes-tomo.jpg",
+      image: "/images/activity-cabildo.jpg",
       summary: "Toma de protesta y análisis de los primeros acuerdos de gobernanza y legalidad para el periodo municipal en Villa de Allende.",
       tags: ["Cabildo", "Marco Normativo", "Villa de Allende"],
     },
@@ -329,7 +317,7 @@ export const PROFILE_DATA: ProfileData = {
       category: "patrimonio",
       categoryLabel: "Patrimonio Municipal",
       date: "2025 · Villa de Allende",
-      image: "/images/villa-allende-plaza-monumento.jpg",
+      image: "/images/villa-allende-town.jpg",
       summary: "Revisión técnica de escrituración e inscripción de bienes de dominio público en el Registro Público de la Propiedad.",
       tags: ["Patrimonio", "RPPyC", "Bienes Públicos"],
     },
@@ -339,9 +327,9 @@ export const PROFILE_DATA: ProfileData = {
       category: "academico",
       categoryLabel: "Gestión Pública UVM",
       date: "2025 · UVM Metepec",
-      image: "/images/mexican-law-codigo-nacional.jpg",
-      summary: "Actualización técnica en fiscalización de la Hacienda Municipal y modernización del gasto público local.",
-      tags: ["UVM Metepec", "Hacienda Pública", "Transparencia"],
+      image: "/images/mexican-law-expedientes-tomo.jpg",
+      summary: "Actualización técnica en fiscalización y modernización de la gestión pública local.",
+      tags: ["UVM Metepec", "Gestión Pública", "Transparencia"],
     },
   ],
   statement: {
