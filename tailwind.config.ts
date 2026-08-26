@@ -46,16 +46,19 @@ const config: Config = {
       },
       boxShadow: {
         subtle: "0 2px 8px -2px rgba(24, 20, 18, 0.04), 0 8px 24px -4px rgba(232, 135, 113, 0.06)",
-        card: "0 10px 35px -5px rgba(232, 135, 113, 0.14), 0 4px 12px -2px rgba(24, 20, 18, 0.04)",
-        glow: "0 0 35px -5px rgba(232, 135, 113, 0.4)",
-        "glow-lg": "0 0 60px -5px rgba(185, 79, 61, 0.35)",
-        floating: "0 20px 45px -15px rgba(24, 20, 18, 0.15)",
+        card: "0 12px 40px -10px rgba(232, 135, 113, 0.16), 0 4px 16px -2px rgba(24, 20, 18, 0.04)",
+        glass: "0 8px 32px 0 rgba(185, 79, 61, 0.12)",
+        glow: "0 0 40px -5px rgba(232, 135, 113, 0.45)",
+        "glow-lg": "0 0 70px -5px rgba(185, 79, 61, 0.4)",
+        floating: "0 25px 50px -12px rgba(24, 20, 18, 0.18)",
+        dock: "0 10px 40px -5px rgba(24, 20, 18, 0.25), 0 0 20px -2px rgba(232, 135, 113, 0.2)",
       },
       animation: {
         "float-slow": "float 5s ease-in-out infinite",
         "float-delayed": "float 6s ease-in-out 1.5s infinite",
         "pulse-glow": "pulseGlow 3s ease-in-out infinite",
         "shimmer": "shimmer 2.5s linear infinite",
+        "spin-slow": "spin 20s linear infinite",
       },
       keyframes: {
         float: {
@@ -64,7 +67,7 @@ const config: Config = {
         },
         pulseGlow: {
           "0%, 100%": { opacity: "0.6", transform: "scale(1)" },
-          "50%": { opacity: "0.9", transform: "scale(1.05)" },
+          "50%": { opacity: "0.95", transform: "scale(1.04)" },
         },
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },

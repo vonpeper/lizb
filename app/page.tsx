@@ -11,6 +11,7 @@ import { ParallaxStatement } from "@/components/parallax-statement";
 import { Principles } from "@/components/principles";
 import { ContactCta } from "@/components/contact-cta";
 import { ContactModal } from "@/components/contact-modal";
+import { DynamicDock } from "@/components/dynamic-dock";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
       {/* Skip to content for WCAG accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-[#B94F3D] text-white rounded-lg text-xs font-semibold shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-[#B94F3D] text-white rounded-xl text-xs font-bold shadow-lg"
       >
         Saltar al contenido principal
       </a>
@@ -46,6 +47,9 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Persistent iOS Dynamic Dock */}
+      <DynamicDock onOpenContact={handleOpenContact} />
 
       {/* Contact Modal */}
       <ContactModal isOpen={isContactOpen} onClose={handleCloseContact} />
