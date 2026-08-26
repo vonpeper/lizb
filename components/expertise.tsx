@@ -14,10 +14,12 @@ export function Expertise() {
     "exp-4": <BookOpen className="w-6 h-6 text-[#B94F3D]" />,
   };
 
+  const items = Array.isArray(PROFILE_DATA.expertise) ? PROFILE_DATA.expertise : [];
+
   return (
     <section
       id="areas"
-      className="py-20 lg:py-28 bg-[#FFFDFC] relative overflow-hidden"
+      className="py-20 lg:py-28 bg-[#FFFDFC] relative overflow-hidden bg-grid-pattern"
       aria-label="Áreas de experiencia y atribuciones"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -32,13 +34,13 @@ export function Expertise() {
             Especialidad Jurídica & Municipal
           </h2>
           <p className="text-base sm:text-lg text-[#5E524E] font-medium">
-            Pilares técnicos de acción en tribunales y gestión pública.
+            Pilares técnicos de acción en tribunales y gestión pública en el Estado de México.
           </p>
         </div>
 
         {/* 4 Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {PROFILE_DATA.expertise.map((item) => {
+          {items.map((item) => {
             const isHovered = selectedId === item.id;
             return (
               <div
@@ -53,7 +55,7 @@ export function Expertise() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] border border-[#EADDD8] flex items-center justify-center shadow-sm">
-                      {iconMap[item.id]}
+                      {iconMap[item.id] || <Scale className="w-6 h-6 text-[#B94F3D]" />}
                     </div>
                     <span className="px-3 py-1 rounded-full bg-[#FFF6F2] border border-[#EADDD8] text-[11px] font-extrabold text-[#B94F3D]">
                       {item.tag}
@@ -71,7 +73,7 @@ export function Expertise() {
 
                   {/* Bullet Pills */}
                   <div className="space-y-2 pt-2 border-t border-[#EADDD8]">
-                    {item.points.map((point, idx) => (
+                    {item.points?.map((point, idx) => (
                       <div key={idx} className="flex items-center gap-2.5 text-xs text-[#181412] font-semibold">
                         <CheckCircle2 className="w-4 h-4 text-[#B94F3D] shrink-0" />
                         <span>{point}</span>

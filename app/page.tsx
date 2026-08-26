@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
 import { Profile } from "@/components/profile";
+import { Expertise } from "@/components/expertise";
 import { Timeline } from "@/components/timeline";
 import { Activities } from "@/components/activities";
 import { Education } from "@/components/education";
@@ -36,6 +37,7 @@ export default function Home() {
       <main id="main-content" className="flex-grow">
         <Hero onOpenContact={handleOpenContact} />
         <Profile />
+        <Expertise />
         <Timeline />
         <Activities />
         <Education />
