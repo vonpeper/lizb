@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Design Tokens - Lizbeth Bernal Segundo */
+  --bg-main: #FFFDFC;
+  --bg-alt: #FFF6F2;
+  --salmon-50: #FFF6F2;
+  --salmon-100: #FFE4DC;
+  --salmon-200: #FCD5CA;
+  --salmon-400: #F6B6A6;
+  --salmon-500: #E88771;
+  --salmon-700: #B94F3D;
+  --text-main: #181412;
+  --text-secondary: #6B605C;
+  --border-color: #EADDD8;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  selection-background-color: var(--salmon-100);
+  selection-color: var(--salmon-700);
+}
+
+::selection {
+  background-color: #FFE4DC;
+  color: #B94F3D;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--salmon-700);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Subtle editorial scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--salmon-200);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--salmon-400);
+}
+
+/* Utility classes for subtle entrance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

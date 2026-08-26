@@ -1,0 +1,62 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Build Next.js Application
+        run: npm run build
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST || '66.94.114.222' }}
+          username: ${{ secrets.VPS_USER || 'jose' }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 2226 }}
+          script: |
+            set -e
+            APP_DIR="/home/jose/apps/lizbernal"
+            mkdir -p /home/jose/apps
+            if [ ! -d "$APP_DIR/.git" ]; then
+              git clone "https://github.com/vonpeper/lizb.git" "$APP_DIR"
+            else
+              cd "$APP_DIR"
+              git fetch origin main
+              git reset --hard origin/main
+            fi
+            cd "$APP_DIR"
+            echo "${{ secrets.VPS_SUDO_PASS }}" | sudo -S podman build -t lizbernal-app:latest .
+            echo "${{ secrets.VPS_SUDO_PASS }}" | sudo -S podman rm -f lizbernal-app 2>/dev/null || true
+            echo "${{ secrets.VPS_SUDO_PASS }}" | sudo -S podman run -d --name lizbernal-app \
+              --network dokploy-network \
+              --restart always \
+              --label "traefik.enable=true" \
+              --label "traefik.http.routers.lizbernal.rule=Host(\`lizbernal.mx\`) || Host(\`www.lizbernal.mx\`)" \
+              --label "traefik.http.routers.lizbernal.entrypoints=websecure" \
+              --label "traefik.http.routers.lizbernal.tls.certresolver=letsencrypt" \
+              --label "traefik.http.services.lizbernal.loadbalancer.server.port=3000" \
+              --label "traefik.docker.network=dokploy-network" \
+              lizbernal-app:latest
+            echo "${{ secrets.VPS_SUDO_PASS }}" | sudo -S podman ps --filter "name=lizbernal"

@@ -1,0 +1,61 @@
+"use client";
+
+import { PROFILE_DATA } from "@/data/profile";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
+
+interface ContactCtaProps {
+  onOpenContact: () => void;
+}
+
+export function ContactCta({ onOpenContact }: ContactCtaProps) {
+  const handleScrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <section
+      id="contacto"
+      className="py-20 lg:py-28 bg-[#FFF6F2] border-t border-[#EADDD8] relative overflow-hidden"
+      aria-label="Llamado a la acción y contacto"
+    >
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFE4DC] border border-[#EADDD8] text-[#B94F3D] text-[11px] font-semibold tracking-wider uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#B94F3D]" />
+          <span>Atención Profesional</span>
+        </div>
+
+        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#181412] max-w-2xl mx-auto leading-tight">
+          {PROFILE_DATA.cta.title}
+        </h2>
+
+        <p className="text-base sm:text-lg text-[#6B605C] max-w-xl mx-auto font-normal">
+          {PROFILE_DATA.cta.description}
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <button
+            type="button"
+            onClick={onOpenContact}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#181412] text-white font-medium text-sm hover:bg-[#B94F3D] focus-visible:ring-2 focus-visible:ring-[#B94F3D] transition-all duration-200 shadow-md"
+          >
+            <span>{PROFILE_DATA.cta.buttonPrimary}</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
+
+          <a
+            href="#inicio"
+            onClick={handleScrollToTop}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#FFFDFC] text-[#181412] border border-[#EADDD8] hover:bg-[#FFE4DC] font-medium text-sm focus-visible:ring-2 focus-visible:ring-[#B94F3D] transition-all duration-200"
+          >
+            <span>{PROFILE_DATA.cta.buttonSecondary}</span>
+            <ArrowUp className="w-4 h-4 text-[#B94F3D]" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
