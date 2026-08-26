@@ -35,21 +35,21 @@ export function Profile() {
           </p>
         </div>
 
-        {/* Bento Grid Architecture */}
+        {/* Bento Grid Architecture with Rich, Visible Images */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           
-          {/* Bento 1: Large Interactive Card with Dynamic Tab Content (Span 8) */}
+          {/* Bento 1: Large Interactive Card (Span 8) */}
           <div className="md:col-span-12 lg:col-span-8 relative p-6 sm:p-8 rounded-3xl bg-[#FFFDFC] border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group">
             
-            {/* Authentic Mexican Law & Villa de Allende Scenery in Background */}
-            <div className="absolute top-0 right-0 w-2/3 h-full opacity-15 pointer-events-none overflow-hidden hidden sm:block">
+            {/* Rich Mexican Law & Flag in Background */}
+            <div className="absolute top-0 right-0 w-3/5 h-full opacity-35 pointer-events-none overflow-hidden hidden sm:block">
               <Image
                 src="/images/mexican-law-codigo-nacional.jpg"
                 alt="Derecho Mexicano y Villa de Allende"
                 fill
-                className="object-cover object-right"
+                className="object-cover object-right group-hover:scale-105 group-hover:opacity-45 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#FFFDFC]/90 to-[#FFFDFC]" />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#FFFDFC]/80 to-[#FFFDFC]" />
             </div>
 
             <div className="relative z-10">
@@ -89,7 +89,7 @@ export function Profile() {
                   {currentMode.bullets.map((bullet, bIdx) => (
                     <div
                       key={bIdx}
-                      className="p-3 rounded-2xl bg-[#FFF6F2]/90 backdrop-blur-sm border border-[#EADDD8] flex items-start gap-3 text-xs sm:text-sm font-semibold text-[#181412]"
+                      className="p-3 rounded-2xl bg-[#FFF6F2]/95 backdrop-blur-md border border-[#EADDD8] flex items-start gap-3 text-xs sm:text-sm font-semibold text-[#181412]"
                     >
                       <CheckCircle2 className="w-5 h-5 text-[#B94F3D] mt-0.5 shrink-0" />
                       <span>{bullet}</span>
@@ -106,8 +106,8 @@ export function Profile() {
           </div>
 
           {/* Bento 2: Sindicatura Municipal Card with Real Plaza y Monumento de Villa de Allende (Span 4) */}
-          <div className="md:col-span-12 lg:col-span-4 relative p-6 sm:p-8 rounded-3xl text-white flex flex-col justify-between shadow-floating overflow-hidden group min-h-[320px]">
-            {/* Background Image: Real Plaza y Monumento de Villa de Allende */}
+          <div className="md:col-span-12 lg:col-span-4 relative p-6 sm:p-8 rounded-3xl text-white flex flex-col justify-between shadow-floating overflow-hidden group min-h-[340px]">
+            {/* Background Image: Highly Visible Plaza & Monument */}
             <div className="absolute inset-0 z-0">
               <Image
                 src="/images/villa-allende-plaza-monumento.jpg"
@@ -115,16 +115,16 @@ export function Profile() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/80 to-[#181412]/35" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/75 to-[#181412]/30" />
             </div>
 
             {/* Content */}
             <div className="relative z-10 space-y-4">
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-[#F6B6A6] shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-[#F6B6A6] shadow-sm">
                   <Landmark className="w-6 h-6" />
                 </div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/30 backdrop-blur-md border border-emerald-400/50 text-emerald-300 text-[11px] font-extrabold">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/40 backdrop-blur-md border border-emerald-300 text-emerald-200 text-[11px] font-extrabold shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   Activa 2025
                 </span>
@@ -134,47 +134,47 @@ export function Profile() {
                 <span className="text-[11px] font-bold uppercase tracking-widest text-[#F6B6A6]">
                   Cargo Institucional
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight drop-shadow-sm">
                   Síndica Municipal
                 </h3>
-                <p className="text-xs text-[#EADDD8] font-semibold">
+                <p className="text-xs text-[#EADDD8] font-semibold drop-shadow-sm">
                   H. Ayuntamiento de Villa de Allende
                 </p>
               </div>
 
-              <div className="space-y-1.5 pt-2 border-t border-white/15">
-                <div className="text-xs text-[#EADDD8] flex items-center gap-2 font-medium">
+              <div className="space-y-1.5 pt-2 border-t border-white/20">
+                <div className="text-xs text-white flex items-center gap-2 font-medium drop-shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F6B6A6]" />
                   <span>Defensa legal e informes de Cabildo</span>
                 </div>
-                <div className="text-xs text-[#EADDD8] flex items-center gap-2 font-medium">
+                <div className="text-xs text-white flex items-center gap-2 font-medium drop-shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F6B6A6]" />
                   <span>Control de presupuestos y Tesorería</span>
                 </div>
-                <div className="text-xs text-[#EADDD8] flex items-center gap-2 font-medium">
+                <div className="text-xs text-white flex items-center gap-2 font-medium drop-shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F6B6A6]" />
                   <span>Inscripción de bienes en RPPyC</span>
                 </div>
               </div>
             </div>
 
-            <div className="relative z-10 pt-5 mt-4 border-t border-white/15 flex items-center justify-between text-xs text-[#F6B6A6] font-bold">
+            <div className="relative z-10 pt-5 mt-4 border-t border-white/20 flex items-center justify-between text-xs text-[#F6B6A6] font-bold">
               <span>Sindicatura Municipal</span>
               <span>Villa de Allende</span>
             </div>
           </div>
 
-          {/* Bento 3: Formación Posgrado (Span 6) */}
-          <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[290px]">
-            {/* Background Scenic Landscape with Soft Gradient */}
+          {/* Bento 3: Formación Posgrado with Clear Scenic Mountain Backdrop (Span 6) */}
+          <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[300px]">
+            {/* Background Scenic Landscape with Less Transparency */}
             <div className="absolute inset-0 z-0">
               <Image
                 src="/images/villa-allende-scenic.jpg"
                 alt="Gestión y Posgrado en Edo. de México"
                 fill
-                className="object-cover opacity-20 group-hover:scale-105 group-hover:opacity-30 transition-all duration-700"
+                className="object-cover opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/90 to-[#FFFDFC]/60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/85 to-[#FFFDFC]/45" />
             </div>
 
             <div className="relative z-10 space-y-4">
@@ -196,7 +196,7 @@ export function Profile() {
                 </p>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#5E524E] leading-relaxed font-medium">
+              <p className="text-xs sm:text-sm text-[#181412] leading-relaxed font-semibold">
                 Especialización en finanzas gubernamentales, planeación y control administrativo institucional.
               </p>
             </div>
@@ -208,16 +208,16 @@ export function Profile() {
           </div>
 
           {/* Bento 4: Licenciatura en Derecho con Código Nacional y Balanza (Span 6) */}
-          <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[290px]">
-            {/* Background Image: Código Nacional de Procedimientos Civiles y Familiares */}
+          <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[300px]">
+            {/* Background Image: Código Nacional & Balanza with Less Transparency */}
             <div className="absolute inset-0 z-0">
               <Image
                 src="/images/mexican-law-codigo-nacional.jpg"
                 alt="Código Nacional de Procedimientos Civiles y Familiares - Derecho Mexicano"
                 fill
-                className="object-cover opacity-25 group-hover:scale-105 group-hover:opacity-35 transition-all duration-700"
+                className="object-cover opacity-45 group-hover:scale-105 group-hover:opacity-55 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/90 to-[#FFFDFC]/60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/85 to-[#FFFDFC]/45" />
             </div>
 
             <div className="relative z-10 space-y-4">
@@ -239,7 +239,7 @@ export function Profile() {
                 </p>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#5E524E] leading-relaxed font-medium">
+              <p className="text-xs sm:text-sm text-[#181412] leading-relaxed font-semibold">
                 Formación procesal, técnica de demandas, amparos, convenios y práctica judicial en el Estado de México.
               </p>
             </div>

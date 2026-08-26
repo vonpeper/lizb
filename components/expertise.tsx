@@ -39,7 +39,7 @@ export function Expertise() {
           </p>
         </div>
 
-        {/* 4 Feature Cards Grid with Authentic Image Accents */}
+        {/* 4 Feature Cards Grid with Visible Background Image Accents */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {items.map((item) => {
             const isHovered = selectedId === item.id;
@@ -53,16 +53,16 @@ export function Expertise() {
                     : "bg-[#FFFDFC] border-[#EADDD8] shadow-subtle hover:border-[#F6B6A6]"
                 }`}
               >
-                {/* Background Authentic Photo Blend */}
+                {/* Background Authentic Photo Blend with High Visibility */}
                 {item.image && (
                   <div className="absolute inset-0 z-0">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-cover opacity-15 group-hover:scale-105 group-hover:opacity-25 transition-all duration-700"
+                      className="object-cover opacity-35 group-hover:scale-105 group-hover:opacity-45 transition-all duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/90 to-[#FFFDFC]/65" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/85 to-[#FFFDFC]/50" />
                   </div>
                 )}
 
@@ -71,7 +71,7 @@ export function Expertise() {
                     <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] border border-[#EADDD8] flex items-center justify-center shadow-sm">
                       {iconMap[item.id] || <Scale className="w-6 h-6 text-[#B94F3D]" />}
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-[#FFF6F2]/90 backdrop-blur-sm border border-[#EADDD8] text-[11px] font-extrabold text-[#B94F3D]">
+                    <span className="px-3 py-1 rounded-full bg-[#FFF6F2]/95 backdrop-blur-md border border-[#EADDD8] text-[11px] font-extrabold text-[#B94F3D]">
                       {item.tag}
                     </span>
                   </div>
@@ -80,7 +80,7 @@ export function Expertise() {
                     <h3 className="text-2xl font-extrabold text-[#181412]">
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-[#5E524E]">
+                    <p className="text-xs sm:text-sm font-bold text-[#5E524E]">
                       {item.summary}
                     </p>
                   </div>
