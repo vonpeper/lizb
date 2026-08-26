@@ -67,7 +67,7 @@ export function Hero({ onOpenContact }: HeroProps) {
     <section
       id="inicio"
       className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-14 lg:pt-32 lg:pb-20 overflow-hidden bg-[#FFFDFC] bg-grid-pattern"
-      aria-label="Presentación principal"
+      aria-label="Presentación principal y perfil de Lizbeth Bernal"
     >
       {/* Apple Ambient Glowing Aura */}
       <div className="absolute top-1/4 right-0 w-[500px] sm:w-[650px] h-[500px] sm:h-[650px] rounded-full bg-gradient-to-br from-[#FFE4DC] via-[#F6B6A6]/40 to-transparent blur-3xl pointer-events-none animate-pulse-glow" />
@@ -75,16 +75,16 @@ export function Hero({ onOpenContact }: HeroProps) {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
         
-        {/* Main Grid: On mobile, Portrait is order-1, Text is order-2 */}
+        {/* Main Grid: On mobile, Portrait is order-1, Content is order-2 */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Portrait of Lizbeth Bernal: order-1 on mobile, lg:order-2 on desktop */}
-          <div className="order-1 lg:order-2 lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md">
+          {/* 1. Portrait of Lizbeth Bernal: order-1 on mobile, lg:order-2 on desktop */}
+          <div className="order-1 lg:order-2 lg:col-span-5 flex justify-center w-full">
+            <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md animate-fade-in">
               
-              {/* Floating Chip 1 */}
+              {/* Floating Credential Chip 1 */}
               <div className="absolute -top-3 -left-2 z-20 flex items-center gap-2 p-2.5 rounded-2xl bg-[#FFFDFC]/95 backdrop-blur-md border border-[#EADDD8] shadow-card animate-float-slow">
-                <span className="w-7 h-7 rounded-xl bg-[#FFE4DC] flex items-center justify-center text-[#B94F3D] text-xs font-extrabold">
+                <span className="w-7 h-7 rounded-xl bg-[#FFE4DC] flex items-center justify-center text-[#B94F3D] text-xs font-extrabold shadow-sm">
                   ⚖️
                 </span>
                 <div>
@@ -93,9 +93,9 @@ export function Hero({ onOpenContact }: HeroProps) {
                 </div>
               </div>
 
-              {/* Floating Chip 2 */}
+              {/* Floating Credential Chip 2 */}
               <div className="absolute -bottom-3 -right-2 z-20 flex items-center gap-2 p-2.5 rounded-2xl bg-[#FFFDFC]/95 backdrop-blur-md border border-[#EADDD8] shadow-card animate-float-delayed">
-                <span className="w-7 h-7 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 text-xs font-extrabold">
+                <span className="w-7 h-7 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 text-xs font-extrabold shadow-sm">
                   ✓
                 </span>
                 <div>
@@ -139,7 +139,7 @@ export function Hero({ onOpenContact }: HeroProps) {
                     </div>
                   )}
 
-                  {/* Bottom Pill */}
+                  {/* Bottom Role Badge Pill */}
                   <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#FFFDFC]/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-[#EADDD8] flex items-center justify-between text-left shadow-sm z-10">
                     <div>
                       <p className="text-xs font-extrabold text-[#181412] leading-tight">
@@ -158,11 +158,11 @@ export function Hero({ onOpenContact }: HeroProps) {
             </div>
           </div>
 
-          {/* Text & Content: order-2 on mobile, lg:order-1 on desktop */}
-          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col space-y-5 sm:space-y-6">
+          {/* 2. Text & Content: order-2 on mobile (Full Width & Centered on mobile, Left-aligned on Desktop) */}
+          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-5 sm:space-y-6 w-full">
             
-            {/* Live Status Chip */}
-            <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-[#FFF6F2] border border-[#EADDD8] text-[#B94F3D] text-[11px] sm:text-xs font-extrabold tracking-wider uppercase shadow-subtle hover:border-[#E88771] transition-all">
+            {/* Live Status Chip: Centered on mobile */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF6F2] border border-[#EADDD8] text-[#B94F3D] text-[11px] sm:text-xs font-extrabold tracking-wider uppercase shadow-subtle hover:border-[#E88771] transition-all">
               <span className="flex h-2.5 w-2.5 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E88771] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#B94F3D]" />
@@ -170,8 +170,8 @@ export function Hero({ onOpenContact }: HeroProps) {
               <span>Síndica Municipal · Villa de Allende · 2025</span>
             </div>
 
-            {/* Massive Bold Headline in Outfit */}
-            <div className="space-y-1 sm:space-y-2">
+            {/* Massive Bold Headline: Full-width Centered in Outfit Typography */}
+            <div className="space-y-1.5 sm:space-y-2 w-full">
               <h1 className="font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#181412] leading-[0.98]">
                 Lizbeth <span className="text-gradient-coral">Bernal</span>
               </h1>
@@ -180,13 +180,13 @@ export function Hero({ onOpenContact }: HeroProps) {
               </p>
             </div>
 
-            {/* Concise Pitch */}
-            <p className="text-[#5E524E] text-base sm:text-lg leading-relaxed max-w-xl font-medium">
+            {/* Concise Pitch: Centered on mobile with max width */}
+            <p className="text-[#5E524E] text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
               Representación legal institucional, defensa del patrimonio municipal y práctica jurídica con rigor normativo en el Estado de México.
             </p>
 
-            {/* Interactive 3-Tab Card Switcher */}
-            <div className="p-4 sm:p-5 rounded-3xl bg-[#FFFDFC]/90 border border-[#EADDD8] shadow-card space-y-3.5 backdrop-blur-md">
+            {/* Interactive 3-Tab Card Switcher: Full-width responsive */}
+            <div className="w-full p-4 sm:p-5 rounded-3xl bg-[#FFFDFC]/95 border border-[#EADDD8] shadow-card space-y-3.5 backdrop-blur-md text-left">
               <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[#FFF6F2] border border-[#EADDD8]/80 overflow-x-auto">
                 {heroTabs.map((tab, idx) => (
                   <button
@@ -236,8 +236,8 @@ export function Hero({ onOpenContact }: HeroProps) {
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+            {/* Action Buttons: Centered on mobile */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 pt-2 w-full sm:w-auto">
               <a
                 href="#perfil"
                 onClick={(e) => handleScrollTo(e, "perfil")}

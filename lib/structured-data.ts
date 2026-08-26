@@ -17,8 +17,12 @@ export function getProfilePageSchema() {
       givenName: "Lizbeth",
       familyName: "Bernal Segundo",
       jobTitle: "Abogada y Síndica Municipal",
+      image: "https://lizbernal.mx/images/og-lizbeth-bernal.jpg",
       description: PROFILE_DATA.site.description,
       url: PROFILE_DATA.site.url,
+      sameAs: [
+        "https://lizbernal.mx",
+      ],
       knowsAbout: [
         "Derecho",
         "Administración Pública",
@@ -45,7 +49,7 @@ export function getProfilePageSchema() {
         },
         {
           "@type": "EducationalOrganization",
-          name: "Universidad del Valle de México",
+          name: "Universidad del Valle de México (UVM)",
           location: "Metepec, Estado de México",
         },
       ],

@@ -28,7 +28,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(PROFILE_DATA.site.url),
   title: {
-    default: PROFILE_DATA.site.title,
+    default: "Lizbeth Bernal Segundo | Abogada & Síndica Municipal",
     template: `%s | ${PROFILE_DATA.personal.fullName}`,
   },
   description: PROFILE_DATA.site.description,
@@ -45,20 +45,29 @@ export const metadata: Metadata = {
     canonical: PROFILE_DATA.site.url,
   },
   openGraph: {
-    type: "profile",
+    type: "website",
     locale: "es_MX",
     url: PROFILE_DATA.site.url,
-    title: PROFILE_DATA.site.title,
+    title: "Lizbeth Bernal Segundo | Abogada & Síndica Municipal",
     description: PROFILE_DATA.site.description,
-    siteName: `${PROFILE_DATA.personal.fullName} - Perfil Profesional`,
-    firstName: "Lizbeth",
-    lastName: "Bernal Segundo",
-    gender: "female",
+    siteName: "Lizbeth Bernal Segundo · Perfil Profesional",
+    images: [
+      {
+        url: "https://lizbernal.mx/images/og-lizbeth-bernal.jpg",
+        secureUrl: "https://lizbernal.mx/images/og-lizbeth-bernal.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Lizbeth Bernal Segundo - Abogada y Síndica Municipal de Villa de Allende",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: PROFILE_DATA.site.title,
+    title: "Lizbeth Bernal Segundo | Abogada & Síndica Municipal",
     description: PROFILE_DATA.site.description,
+    images: ["https://lizbernal.mx/images/og-lizbeth-bernal.jpg"],
+    creator: "@lizbernal",
   },
   robots: {
     index: true,
