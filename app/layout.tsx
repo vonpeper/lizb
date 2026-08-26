@@ -31,8 +31,16 @@ export const metadata: Metadata = {
     default: "Lizbeth Bernal Segundo | Abogada & Síndica Municipal",
     template: `%s | ${PROFILE_DATA.personal.fullName}`,
   },
-  description: PROFILE_DATA.site.description,
-  keywords: PROFILE_DATA.site.keywords,
+  description: "Sitio oficial de Lizbeth Bernal Segundo. Abogada y Síndica Municipal en Villa de Allende, Estado de México. Licenciada en Derecho (ISIMA) y Maestrante en Administración Pública (UVM Metepec).",
+  keywords: [
+    "Lizbeth Bernal Segundo",
+    "Lizbeth Bernal",
+    "Abogada Estado de México",
+    "Síndica Municipal Villa de Allende",
+    "Administración Pública UVM",
+    "Derecho Municipal Toluca",
+    "Servicio Público Villa de Allende",
+  ],
   authors: [{ name: PROFILE_DATA.personal.fullName, url: PROFILE_DATA.site.url }],
   creator: PROFILE_DATA.personal.fullName,
   publisher: PROFILE_DATA.personal.fullName,
@@ -47,9 +55,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_MX",
-    url: PROFILE_DATA.site.url,
+    url: "https://lizbernal.mx",
     title: "Lizbeth Bernal Segundo | Abogada & Síndica Municipal",
-    description: PROFILE_DATA.site.description,
+    description: "Sitio oficial de Lizbeth Bernal Segundo. Abogada y Síndica Municipal en Villa de Allende, Estado de México. Licenciada en Derecho (ISIMA) y Maestrante en Administración Pública (UVM Metepec).",
     siteName: "Lizbeth Bernal Segundo · Perfil Profesional",
     images: [
       {
@@ -60,12 +68,20 @@ export const metadata: Metadata = {
         type: "image/jpeg",
         alt: "Lizbeth Bernal Segundo - Abogada y Síndica Municipal de Villa de Allende",
       },
+      {
+        url: "https://lizbernal.mx/og-image.jpg",
+        secureUrl: "https://lizbernal.mx/og-image.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Lizbeth Bernal Segundo - Perfil Profesional",
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Lizbeth Bernal Segundo | Abogada & Síndica Municipal",
-    description: PROFILE_DATA.site.description,
+    description: "Sitio oficial de Lizbeth Bernal Segundo. Abogada y Síndica Municipal en Villa de Allende, Estado de México. Licenciada en Derecho (ISIMA) y Maestrante en Administración Pública (UVM Metepec).",
     images: ["https://lizbernal.mx/images/og-lizbeth-bernal.jpg"],
     creator: "@lizbernal",
   },
@@ -96,6 +112,33 @@ export default function RootLayout({
   return (
     <html lang="es-MX" className={`${outfit.variable} ${plusJakartaSans.variable} font-sans`}>
       <head>
+        {/* Fallback Explicit OpenGraph & Meta Tags for WhatsApp, Facebook, iMessage & Telegram */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://lizbernal.mx" />
+        <meta property="og:title" content="Lizbeth Bernal Segundo | Abogada & Síndica Municipal" />
+        <meta
+          property="og:description"
+          content="Sitio oficial de Lizbeth Bernal Segundo. Abogada y Síndica Municipal en Villa de Allende, Estado de México. Licenciada en Derecho (ISIMA) y Maestrante en Administración Pública (UVM Metepec)."
+        />
+        <meta property="og:image" content="https://lizbernal.mx/images/og-lizbeth-bernal.jpg" />
+        <meta property="og:image:secure_url" content="https://lizbernal.mx/images/og-lizbeth-bernal.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Lizbeth Bernal Segundo - Abogada y Síndica Municipal" />
+        <meta property="og:site_name" content="Lizbeth Bernal Segundo" />
+        <meta property="og:locale" content="es_MX" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Lizbeth Bernal Segundo | Abogada & Síndica Municipal" />
+        <meta
+          name="twitter:description"
+          content="Sitio oficial de Lizbeth Bernal Segundo. Abogada y Síndica Municipal en Villa de Allende, Estado de México. Licenciada en Derecho (ISIMA) y Maestrante en Administración Pública (UVM Metepec)."
+        />
+        <meta name="twitter:image" content="https://lizbernal.mx/images/og-lizbeth-bernal.jpg" />
+
+        {/* JSON-LD Schema.org for Google Knowledge Graph */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
