@@ -6,11 +6,11 @@ async function createOgImage() {
   const width = 1200;
   const height = 630;
 
-  // 1. Prepare portrait: resize and round corners
-  const portraitPath = path.join(__dirname, '../public/images/lizbeth-bernal-retrato.jpg');
+  // 1. Prepare newly uploaded portrait: resize and round corners
+  const portraitPath = path.join(__dirname, '../public/images/lizbeth-bernal-og-portrait.jpg');
   
-  // Crop / resize portrait to 420x530
-  const portraitWidth = 420;
+  // Crop / resize portrait to 430x530 with perfect focus on face and posture
+  const portraitWidth = 430;
   const portraitHeight = 530;
   
   const portraitBuffer = await sharp(portraitPath)
@@ -103,7 +103,7 @@ async function createOgImage() {
       </g>
 
       <!-- Right Column: Portrait Photo Frame Border & Shadow -->
-      <g transform="translate(710, 50)" filter="url(#shadow)">
+      <g transform="translate(700, 50)" filter="url(#shadow)">
         <rect width="${portraitWidth + 12}" height="${portraitHeight + 12}" rx="34" fill="#FFFDFC" stroke="#EADDD8" stroke-width="2"/>
       </g>
     </svg>
@@ -117,18 +117,19 @@ async function createOgImage() {
       {
         input: roundedPortrait,
         top: 56,
-        left: 716,
+        left: 706,
       },
     ])
-    .jpeg({ quality: 92 })
+    .jpeg({ quality: 95 })
     .toBuffer();
 
   // Save as static files for OpenGraph / WhatsApp / Facebook / Twitter
   fs.writeFileSync(path.join(__dirname, '../public/og-image.jpg'), finalOgImage);
   fs.writeFileSync(path.join(__dirname, '../public/images/og-lizbeth-bernal.jpg'), finalOgImage);
+  fs.writeFileSync(path.join(__dirname, '../public/opengraph-image.jpg'), finalOgImage);
   fs.writeFileSync(path.join(__dirname, '../public/opengraph-image.png'), finalOgImage);
   
-  console.log('✅ OpenGraph image generated successfully at 1200x630!');
+  console.log('✅ OpenGraph image generated successfully with the new official portrait at 1200x630!');
 }
 
 createOgImage().catch(console.error);
