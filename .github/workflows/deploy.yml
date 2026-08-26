@@ -48,15 +48,21 @@ jobs:
             fi
             cd "$APP_DIR"
             echo "${{ secrets.VPS_SUDO_PASS }}" | sudo -S podman build -t lizbernal-app:latest .
-            echo "${{ secrets.VPS_SUDO_PASS }}" | sudo -S podman rm -f lizbernal-app 2>/dev/null || true
-            echo "${{ secrets.VPS_SUDO_PASS }}" | sudo -S podman run -d --name lizbernal-app \
-              --network dokploy-network \
+            echo "${{ secrets.VPS_SUDO_PASS }}" | sudo -S podman rm -f lizbernal 2>/dev/null || true
+            echo "${{ secrets.VPS_SUDO_PASS }}" | sudo -S podman run -d --name lizbernal \
+              --network prosuite \
               --restart always \
+              --label "org.prosuite.stack=lizbernal" \
               --label "traefik.enable=true" \
-              --label "traefik.http.routers.lizbernal.rule=Host(\`lizbernal.mx\`) || Host(\`www.lizbernal.mx\`)" \
-              --label "traefik.http.routers.lizbernal.entrypoints=websecure" \
-              --label "traefik.http.routers.lizbernal.tls.certresolver=letsencrypt" \
+              --label "traefik.docker.network=prosuite" \
+              --label "traefik.http.routers.lizbernal-apex.rule=Host(\`lizbernal.mx\`)" \
+              --label "traefik.http.routers.lizbernal-apex.entrypoints=websecure" \
+              --label "traefik.http.routers.lizbernal-apex.tls.certresolver=letsencrypt-dns" \
+              --label "traefik.http.routers.lizbernal-apex.service=lizbernal" \
+              --label "traefik.http.routers.lizbernal-www.rule=Host(\`www.lizbernal.mx\`)" \
+              --label "traefik.http.routers.lizbernal-www.entrypoints=websecure" \
+              --label "traefik.http.routers.lizbernal-www.tls.certresolver=letsencrypt-dns" \
+              --label "traefik.http.routers.lizbernal-www.service=lizbernal" \
               --label "traefik.http.services.lizbernal.loadbalancer.server.port=3000" \
-              --label "traefik.docker.network=dokploy-network" \
               lizbernal-app:latest
             echo "${{ secrets.VPS_SUDO_PASS }}" | sudo -S podman ps --filter "name=lizbernal"

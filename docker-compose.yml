@@ -1,24 +1,28 @@
 services:
-  lizbernal-app:
+  lizbernal:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: lizbernal-app
+    container_name: lizbernal
     restart: always
     environment:
       - NODE_ENV=production
       - PORT=3000
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.lizbernal.rule=Host(`lizbernal.mx`) || Host(`www.lizbernal.mx`)"
-      - "traefik.http.routers.lizbernal.entrypoints=websecure"
-      - "traefik.http.routers.lizbernal.tls.certresolver=letsencrypt"
+      - "traefik.docker.network=prosuite"
+      - "traefik.http.routers.lizbernal-apex.rule=Host(`lizbernal.mx`)"
+      - "traefik.http.routers.lizbernal-apex.entrypoints=websecure"
+      - "traefik.http.routers.lizbernal-apex.tls.certresolver=letsencrypt-dns"
+      - "traefik.http.routers.lizbernal-apex.service=lizbernal"
+      - "traefik.http.routers.lizbernal-www.rule=Host(`www.lizbernal.mx`)"
+      - "traefik.http.routers.lizbernal-www.entrypoints=websecure"
+      - "traefik.http.routers.lizbernal-www.tls.certresolver=letsencrypt-dns"
+      - "traefik.http.routers.lizbernal-www.service=lizbernal"
       - "traefik.http.services.lizbernal.loadbalancer.server.port=3000"
-      - "traefik.docker.network=dokploy-network"
     networks:
-      - default
-      - dokploy-network
+      - prosuite
 
 networks:
-  dokploy-network:
+  prosuite:
     external: true
