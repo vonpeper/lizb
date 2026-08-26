@@ -43,21 +43,21 @@ export function ContactCta({ onOpenContact }: ContactCtaProps) {
       className="relative py-28 lg:py-36 overflow-hidden flex items-center justify-center text-center text-white"
       aria-label="Llamado a la acción y contacto"
     >
-      {/* Parallax Background with Authentic Villa de Allende Portales Photo */}
+      {/* Panoramic Mountain Sunset Parallax Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div
           className="relative w-full h-[135%] -top-[18%] transition-transform duration-100 ease-out"
           style={{ transform: `translateY(${offsetY * 0.05}px)` }}
         >
           <Image
-            src="/images/villa-allende-portales.jpg"
-            alt="Portales y arquitectura tradicional de Villa de Allende, Estado de México"
+            src="/images/cta-sunset.jpg"
+            alt="Atardecer en las montañas del Estado de México"
             fill
             className="object-cover object-center"
           />
         </div>
-        {/* Warm Frosted Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/85 to-[#181412]/60 backdrop-blur-[2px]" />
+        {/* Apple-style Warm Gradient Overlay for Clean Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/80 to-[#181412]/50 backdrop-blur-[1px]" />
       </div>
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 space-y-8">

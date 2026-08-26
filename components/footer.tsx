@@ -6,7 +6,7 @@ export function Footer() {
 
   return (
     <footer
-      className="bg-[#181412] text-[#EADDD8] pt-14 pb-20 lg:pt-18 lg:pb-24 border-t border-white/10 relative overflow-hidden"
+      className="bg-[#181412] text-[#EADDD8] pt-16 pb-24 lg:pt-20 lg:pb-28 border-t border-white/10 relative"
       role="contentinfo"
       aria-label="Pie de página institucional"
     >
@@ -15,16 +15,16 @@ export function Footer() {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-between pb-12 border-b border-white/10">
           
-          {/* Left Brand with Clean Circular Avatar */}
+          {/* Left Brand with Full Profile Avatar */}
           <div className="md:col-span-6 space-y-4">
             <div className="flex items-center gap-4">
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-[#E88771] shadow-glow shrink-0 bg-[#FFF6F2]">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 aspect-square rounded-full overflow-hidden border-2 border-[#E88771] shadow-glow shrink-0 bg-[#FFF6F2]">
                 <Image
                   src={PROFILE_DATA.personal.avatarPath}
                   alt={PROFILE_DATA.personal.fullName}
                   fill
                   sizes="64px"
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                 />
               </div>
               <div className="space-y-0.5">

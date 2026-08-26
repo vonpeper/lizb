@@ -35,23 +35,11 @@ export function Profile() {
           </p>
         </div>
 
-        {/* Bento Grid Architecture with Rich, Visible Images */}
+        {/* Bento Grid Architecture: Unique, Non-repeated High-Res Images */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           
-          {/* Bento 1: Large Interactive Card (Span 8) */}
-          <div className="md:col-span-12 lg:col-span-8 relative p-6 sm:p-8 rounded-3xl bg-[#FFFDFC] border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group">
-            
-            {/* Rich Mexican Law & Flag in Background */}
-            <div className="absolute top-0 right-0 w-3/5 h-full opacity-35 pointer-events-none overflow-hidden hidden sm:block">
-              <Image
-                src="/images/mexican-law-codigo-nacional.jpg"
-                alt="Derecho Mexicano y Villa de Allende"
-                fill
-                className="object-cover object-right group-hover:scale-105 group-hover:opacity-45 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#FFFDFC]/80 to-[#FFFDFC]" />
-            </div>
-
+          {/* Bento 1: Large Interactive Card with Clean High-Tech Presentation (Span 8) */}
+          <div className="md:col-span-12 lg:col-span-8 relative p-6 sm:p-8 rounded-3xl bg-[#FFFDFC] border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden">
             <div className="relative z-10">
               {/* Interactive Tabs */}
               <div className="flex flex-wrap items-center gap-2 mb-6 pb-4 border-b border-[#EADDD8]">
@@ -89,7 +77,7 @@ export function Profile() {
                   {currentMode.bullets.map((bullet, bIdx) => (
                     <div
                       key={bIdx}
-                      className="p-3 rounded-2xl bg-[#FFF6F2]/95 backdrop-blur-md border border-[#EADDD8] flex items-start gap-3 text-xs sm:text-sm font-semibold text-[#181412]"
+                      className="p-3.5 rounded-2xl bg-[#FFF6F2] border border-[#EADDD8] flex items-start gap-3 text-xs sm:text-sm font-semibold text-[#181412]"
                     >
                       <CheckCircle2 className="w-5 h-5 text-[#B94F3D] mt-0.5 shrink-0" />
                       <span>{bullet}</span>
@@ -107,7 +95,7 @@ export function Profile() {
 
           {/* Bento 2: Sindicatura Municipal Card with Real Plaza y Monumento de Villa de Allende (Span 4) */}
           <div className="md:col-span-12 lg:col-span-4 relative p-6 sm:p-8 rounded-3xl text-white flex flex-col justify-between shadow-floating overflow-hidden group min-h-[340px]">
-            {/* Background Image: Highly Visible Plaza & Monument */}
+            {/* Background Image: Crisp Real Plaza y Monumento de Villa de Allende */}
             <div className="absolute inset-0 z-0">
               <Image
                 src="/images/villa-allende-plaza-monumento.jpg"
@@ -115,7 +103,7 @@ export function Profile() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/75 to-[#181412]/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/80 to-[#181412]/35" />
             </div>
 
             {/* Content */}
@@ -164,17 +152,17 @@ export function Profile() {
             </div>
           </div>
 
-          {/* Bento 3: Formación Posgrado with Clear Scenic Mountain Backdrop (Span 6) */}
+          {/* Bento 3: Formación Posgrado with Portales de Villa de Allende (Span 6) */}
           <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[300px]">
-            {/* Background Scenic Landscape with Less Transparency */}
+            {/* Background Image: Portales de Villa de Allende */}
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/villa-allende-scenic.jpg"
-                alt="Gestión y Posgrado en Edo. de México"
+                src="/images/villa-allende-portales.jpg"
+                alt="Portales coloniales de Villa de Allende"
                 fill
-                className="object-cover opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
+                className="object-cover opacity-35 group-hover:scale-105 group-hover:opacity-45 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/85 to-[#FFFDFC]/45" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/85 to-[#FFFDFC]/40" />
             </div>
 
             <div className="relative z-10 space-y-4">
@@ -207,17 +195,17 @@ export function Profile() {
             </div>
           </div>
 
-          {/* Bento 4: Licenciatura en Derecho con Código Nacional y Balanza (Span 6) */}
+          {/* Bento 4: Licenciatura en Derecho con Código Nacional y Bandera (Span 6) */}
           <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[300px]">
-            {/* Background Image: Código Nacional & Balanza with Less Transparency */}
+            {/* Background Image: Código Nacional & Bandera Mexicana */}
             <div className="absolute inset-0 z-0">
               <Image
                 src="/images/mexican-law-codigo-nacional.jpg"
                 alt="Código Nacional de Procedimientos Civiles y Familiares - Derecho Mexicano"
                 fill
-                className="object-cover opacity-45 group-hover:scale-105 group-hover:opacity-55 transition-all duration-700"
+                className="object-cover opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/85 to-[#FFFDFC]/45" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/85 to-[#FFFDFC]/40" />
             </div>
 
             <div className="relative z-10 space-y-4">
