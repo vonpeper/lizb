@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { PROFILE_DATA } from "@/data/profile";
-import { ArrowUpRight, Scale, Shield, Landmark, Sparkles, ChevronRight, Check } from "lucide-react";
+import { ArrowUpRight, Scale, Shield, Landmark, ChevronRight } from "lucide-react";
 
 interface HeroProps {
   onOpenContact: () => void;
@@ -75,11 +75,91 @@ export function Hero({ onOpenContact }: HeroProps) {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
         
-        {/* Main Grid */}
+        {/* Main Grid: On mobile, Portrait is order-1, Text is order-2 */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Column Left: Identity & Keynote Presentation */}
-          <div className="lg:col-span-7 flex flex-col space-y-5 sm:space-y-6">
+          {/* Portrait of Lizbeth Bernal: order-1 on mobile, lg:order-2 on desktop */}
+          <div className="order-1 lg:order-2 lg:col-span-5 flex justify-center">
+            <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md">
+              
+              {/* Floating Chip 1 */}
+              <div className="absolute -top-3 -left-2 z-20 flex items-center gap-2 p-2.5 rounded-2xl bg-[#FFFDFC]/95 backdrop-blur-md border border-[#EADDD8] shadow-card animate-float-slow">
+                <span className="w-7 h-7 rounded-xl bg-[#FFE4DC] flex items-center justify-center text-[#B94F3D] text-xs font-extrabold">
+                  ⚖️
+                </span>
+                <div>
+                  <p className="text-[11px] font-extrabold text-[#181412]">Abogada Titulada</p>
+                  <p className="text-[9px] text-[#5E524E]">ISIMA Universidad</p>
+                </div>
+              </div>
+
+              {/* Floating Chip 2 */}
+              <div className="absolute -bottom-3 -right-2 z-20 flex items-center gap-2 p-2.5 rounded-2xl bg-[#FFFDFC]/95 backdrop-blur-md border border-[#EADDD8] shadow-card animate-float-delayed">
+                <span className="w-7 h-7 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 text-xs font-extrabold">
+                  ✓
+                </span>
+                <div>
+                  <p className="text-[11px] font-extrabold text-[#181412]">Sindicatura Activa</p>
+                  <p className="text-[9px] text-emerald-600 font-bold">2025–Presente</p>
+                </div>
+              </div>
+
+              {/* Glowing Outer Aura */}
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#B94F3D] via-[#E88771] to-[#F6B6A6] opacity-40 blur-xl" />
+
+              {/* Portrait Frame Container */}
+              <div className="relative rounded-3xl bg-[#FFFDFC] border border-[#EADDD8] p-3 sm:p-4 shadow-card overflow-hidden">
+                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-gradient-to-b from-[#FFF6F2] via-[#FFE4DC]/50 to-[#FFFDFC] flex flex-col items-center justify-center text-center border border-[#EADDD8]">
+                  
+                  {!imageError ? (
+                    <Image
+                      src="/images/lizbeth-bernal-retrato.jpg"
+                      alt={PROFILE_DATA.personal.portraitAlt}
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 85vw, (max-width: 1200px) 45vw, 450px"
+                      className="object-cover object-top"
+                      onError={() => setImageError(true)}
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center space-y-3.5 max-w-xs p-6">
+                      <div className="w-20 h-20 rounded-3xl bg-gradient-to-tr from-[#FFE4DC] to-[#F6B6A6] border-2 border-[#EADDD8] flex items-center justify-center shadow-card">
+                        <span className="font-extrabold text-3xl text-[#B94F3D]">
+                          {PROFILE_DATA.personal.monogram}
+                        </span>
+                      </div>
+                      <div className="space-y-0.5">
+                        <h3 className="font-extrabold text-xl text-[#181412]">
+                          {PROFILE_DATA.personal.fullName}
+                        </h3>
+                        <p className="text-[11px] uppercase tracking-wider text-[#B94F3D] font-extrabold">
+                          Perfil Profesional
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Bottom Pill */}
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#FFFDFC]/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-[#EADDD8] flex items-center justify-between text-left shadow-sm z-10">
+                    <div>
+                      <p className="text-xs font-extrabold text-[#181412] leading-tight">
+                        {PROFILE_DATA.personal.currentRole}
+                      </p>
+                      <p className="text-[10px] text-[#5E524E] font-bold mt-0.5">
+                        {PROFILE_DATA.personal.location}
+                      </p>
+                    </div>
+                    <span className="px-2.5 py-1 rounded-xl text-[10px] font-extrabold uppercase bg-[#FFE4DC] text-[#B94F3D] border border-[#EADDD8]">
+                      2025
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Text & Content: order-2 on mobile, lg:order-1 on desktop */}
+          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col space-y-5 sm:space-y-6">
             
             {/* Live Status Chip */}
             <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-[#FFF6F2] border border-[#EADDD8] text-[#B94F3D] text-[11px] sm:text-xs font-extrabold tracking-wider uppercase shadow-subtle hover:border-[#E88771] transition-all">
@@ -178,85 +258,6 @@ export function Hero({ onOpenContact }: HeroProps) {
             </div>
           </div>
 
-          {/* Column Right: Portrait of Lizbeth Bernal with Glowing Floating Chips */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-sm sm:max-w-md">
-              
-              {/* Floating Chip 1 */}
-              <div className="absolute -top-3 -left-2 z-20 flex items-center gap-2 p-2.5 rounded-2xl bg-[#FFFDFC]/95 backdrop-blur-md border border-[#EADDD8] shadow-card animate-float-slow">
-                <span className="w-7 h-7 rounded-xl bg-[#FFE4DC] flex items-center justify-center text-[#B94F3D] text-xs font-extrabold">
-                  ⚖️
-                </span>
-                <div>
-                  <p className="text-[11px] font-extrabold text-[#181412]">Abogada Titulada</p>
-                  <p className="text-[9px] text-[#5E524E]">ISIMA Universidad</p>
-                </div>
-              </div>
-
-              {/* Floating Chip 2 */}
-              <div className="absolute -bottom-3 -right-2 z-20 flex items-center gap-2 p-2.5 rounded-2xl bg-[#FFFDFC]/95 backdrop-blur-md border border-[#EADDD8] shadow-card animate-float-delayed">
-                <span className="w-7 h-7 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 text-xs font-extrabold">
-                  ✓
-                </span>
-                <div>
-                  <p className="text-[11px] font-extrabold text-[#181412]">Sindicatura Activa</p>
-                  <p className="text-[9px] text-emerald-600 font-bold">2025–Presente</p>
-                </div>
-              </div>
-
-              {/* Glowing Outer Aura */}
-              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#B94F3D] via-[#E88771] to-[#F6B6A6] opacity-40 blur-xl" />
-
-              {/* Portrait Frame Container */}
-              <div className="relative rounded-3xl bg-[#FFFDFC] border border-[#EADDD8] p-3.5 sm:p-4 shadow-card overflow-hidden">
-                <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full rounded-2xl overflow-hidden bg-gradient-to-b from-[#FFF6F2] via-[#FFE4DC]/50 to-[#FFFDFC] flex flex-col items-center justify-center text-center border border-[#EADDD8]">
-                  
-                  {!imageError ? (
-                    <Image
-                      src="/images/lizbeth-bernal-retrato.jpg"
-                      alt={PROFILE_DATA.personal.portraitAlt}
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 450px"
-                      className="object-cover object-top"
-                      onError={() => setImageError(true)}
-                    />
-                  ) : (
-                    <div className="flex flex-col items-center justify-center space-y-3.5 max-w-xs p-6">
-                      <div className="w-20 h-20 rounded-3xl bg-gradient-to-tr from-[#FFE4DC] to-[#F6B6A6] border-2 border-[#EADDD8] flex items-center justify-center shadow-card">
-                        <span className="font-extrabold text-3xl text-[#B94F3D]">
-                          {PROFILE_DATA.personal.monogram}
-                        </span>
-                      </div>
-                      <div className="space-y-0.5">
-                        <h3 className="font-extrabold text-xl text-[#181412]">
-                          {PROFILE_DATA.personal.fullName}
-                        </h3>
-                        <p className="text-[11px] uppercase tracking-wider text-[#B94F3D] font-extrabold">
-                          Perfil Profesional
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Bottom Pill */}
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#FFFDFC]/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-[#EADDD8] flex items-center justify-between text-left shadow-sm z-10">
-                    <div>
-                      <p className="text-xs font-extrabold text-[#181412] leading-tight">
-                        {PROFILE_DATA.personal.currentRole}
-                      </p>
-                      <p className="text-[10px] text-[#5E524E] font-bold mt-0.5">
-                        {PROFILE_DATA.personal.location}
-                      </p>
-                    </div>
-                    <span className="px-2.5 py-1 rounded-xl text-[10px] font-extrabold uppercase bg-[#FFE4DC] text-[#B94F3D] border border-[#EADDD8]">
-                      2025
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
