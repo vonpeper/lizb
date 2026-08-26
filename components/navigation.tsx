@@ -15,7 +15,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
 
   const navLinks = [
     { href: "#inicio", label: "Inicio", id: "inicio" },
-    { href: "#perfil", label: "Perfil Bento", id: "perfil" },
+    { href: "#perfil", label: "Perfil", id: "perfil" },
     { href: "#areas", label: "Áreas", id: "areas" },
     { href: "#experiencia", label: "Trayectoria", id: "experiencia" },
     { href: "#formacion", label: "Formación", id: "formacion" },
@@ -85,25 +85,26 @@ export function Navigation({ onOpenContact }: NavigationProps) {
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Brand Logo & Live Status */}
+          
+          {/* Brand Logo & Status */}
           <a
             href="#inicio"
             onClick={(e) => handleNavClick(e, "#inicio")}
-            className="group flex items-center gap-3 p-1.5 rounded-2xl bg-[#FFFDFC]/80 backdrop-blur-md border border-[#EADDD8] hover:border-[#E88771] transition-all duration-200 shadow-sm"
+            className="group flex items-center gap-3 p-1.5 rounded-2xl bg-[#FFFDFC]/85 backdrop-blur-md border border-[#EADDD8] hover:border-[#E88771] transition-all duration-200 shadow-sm"
             aria-label="Lizbeth Bernal Segundo - Inicio"
           >
             <div className="relative">
-              <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] flex items-center justify-center font-bold text-sm text-[#B94F3D] shadow-sm group-hover:scale-105 transition-transform">
+              <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] flex items-center justify-center font-extrabold text-sm text-[#B94F3D] shadow-sm group-hover:scale-105 transition-transform">
                 {PROFILE_DATA.personal.monogram}
               </span>
               <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-[#FFFDFC] animate-pulse" />
             </div>
 
             <div className="flex flex-col pr-2">
-              <span className="font-bold text-sm tracking-tight text-[#181412] leading-none group-hover:text-[#B94F3D] transition-colors">
+              <span className="font-extrabold text-sm tracking-tight text-[#181412] leading-none group-hover:text-[#B94F3D] transition-colors">
                 {PROFILE_DATA.personal.shortName}
               </span>
-              <span className="text-[10px] font-semibold tracking-wide uppercase text-[#B94F3D] mt-0.5 flex items-center gap-1">
+              <span className="text-[10px] font-extrabold tracking-wide uppercase text-[#B94F3D] mt-0.5 flex items-center gap-1">
                 <span className="w-1 h-1 rounded-full bg-[#E88771]" />
                 Síndica Municipal
               </span>
@@ -123,16 +124,13 @@ export function Navigation({ onOpenContact }: NavigationProps) {
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   aria-current={isActive ? "page" : undefined}
-                  className={`relative px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                  className={`relative px-4 py-2 rounded-full text-xs font-extrabold tracking-wide transition-all duration-200 ${
                     isActive
                       ? "bg-[#181412] text-white shadow-sm"
                       : "text-[#5E524E] hover:text-[#181412] hover:bg-[#FFE4DC]/60"
                   }`}
                 >
                   {link.label}
-                  {isActive && (
-                    <span className="absolute -top-1 right-2 w-1.5 h-1.5 rounded-full bg-[#E88771]" />
-                  )}
                 </a>
               );
             })}
@@ -143,7 +141,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
             <button
               type="button"
               onClick={onOpenContact}
-              className="relative group overflow-hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wide bg-gradient-to-r from-[#B94F3D] via-[#E88771] to-[#B94F3D] bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white shadow-md hover:shadow-glow focus-visible:ring-2 focus-visible:ring-[#B94F3D]"
+              className="relative group overflow-hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-extrabold tracking-wide bg-gradient-to-r from-[#B94F3D] via-[#E88771] to-[#B94F3D] bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white shadow-md hover:shadow-glow focus-visible:ring-2 focus-visible:ring-[#B94F3D]"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Contacto</span>
@@ -186,14 +184,14 @@ export function Navigation({ onOpenContact }: NavigationProps) {
             <div>
               <div className="flex items-center justify-between pb-6 border-b border-[#EADDD8]">
                 <div className="flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] flex items-center justify-center font-bold text-sm text-[#B94F3D]">
+                  <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] flex items-center justify-center font-extrabold text-sm text-[#B94F3D]">
                     {PROFILE_DATA.personal.monogram}
                   </span>
                   <div className="flex flex-col">
-                    <span className="font-bold text-sm text-[#181412]">
+                    <span className="font-extrabold text-sm text-[#181412]">
                       {PROFILE_DATA.personal.fullName}
                     </span>
-                    <span className="text-[10px] uppercase tracking-wider text-[#B94F3D] font-semibold">
+                    <span className="text-[10px] uppercase tracking-wider text-[#B94F3D] font-extrabold">
                       Villa de Allende · 2025
                     </span>
                   </div>
@@ -216,7 +214,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
                       key={link.id}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className={`px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+                      className={`px-4 py-3 rounded-xl text-sm font-extrabold transition-all ${
                         isActive
                           ? "bg-[#181412] text-white shadow-sm"
                           : "text-[#181412] hover:bg-[#FFF6F2]"
@@ -236,12 +234,12 @@ export function Navigation({ onOpenContact }: NavigationProps) {
                   setMobileMenuOpen(false);
                   onOpenContact();
                 }}
-                className="w-full py-3.5 px-4 rounded-xl bg-[#B94F3D] text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md hover:bg-[#E88771] transition-colors"
+                className="w-full py-3.5 px-4 rounded-xl bg-[#B94F3D] text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md"
               >
                 <span>Contacto profesional</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
-              <p className="text-[11px] text-center text-[#5E524E]">
+              <p className="text-[11px] text-center text-[#5E524E] font-medium">
                 {PROFILE_DATA.personal.location}
               </p>
             </div>

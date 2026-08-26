@@ -1,13 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { PROFILE_DATA } from "@/data/profile";
 import { getProfilePageSchema } from "@/lib/structured-data";
 
-const montserrat = Montserrat({
+const outfit = Outfit({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-montserrat",
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-jakarta",
   display: "swap",
 });
 
@@ -78,7 +85,7 @@ export default function RootLayout({
   const jsonLd = getProfilePageSchema();
 
   return (
-    <html lang="es-MX" className={`${montserrat.variable} font-sans`}>
+    <html lang="es-MX" className={`${outfit.variable} ${plusJakartaSans.variable} font-sans`}>
       <head>
         <script
           type="application/ld+json"

@@ -5,7 +5,9 @@ export interface TimelineItem {
   location: string;
   period: string;
   current?: boolean;
-  responsibilities: string[];
+  category: "public" | "private";
+  tag: string;
+  highlights: string[];
 }
 
 export interface EducationItem {
@@ -16,21 +18,24 @@ export interface EducationItem {
   period: string;
   status: "in_progress" | "completed";
   statusLabel: string;
-  description: string;
+  tag: string;
+  highlights: string[];
 }
 
 export interface ExpertiseItem {
   id: string;
   number: string;
   title: string;
-  description: string;
-  details: string[];
+  tag: string;
+  summary: string;
+  points: string[];
 }
 
 export interface PrincipleItem {
   id: string;
   title: string;
   tagline: string;
+  iconName: string;
   description: string;
 }
 
@@ -39,10 +44,10 @@ export const PROFILE_DATA = {
     fullName: "Lizbeth Bernal Segundo",
     shortName: "Lizbeth Bernal",
     monogram: "LB",
-    profession: "Abogada y Servidora Pública",
-    location: "Villa de Allende, Estado de México",
-    currentRole: "Síndica Municipal de Villa de Allende",
-    currentEducation: "Maestrante en Administración Pública (UVM)",
+    profession: "Abogada & Servidora Pública",
+    location: "Villa de Allende, Edo. Méx.",
+    currentRole: "Síndica Municipal",
+    currentEducation: "Maestría en Admón. Pública (UVM)",
     portraitPath: "/images/lizbeth-bernal-retrato.webp",
     portraitAlt: "Lizbeth Bernal Segundo, abogada y servidora pública de Villa de Allende",
   },
@@ -51,61 +56,76 @@ export const PROFILE_DATA = {
     domain: "lizbernal.mx",
     url: "https://lizbernal.mx",
     locale: "es-MX",
-    title: "Lizbeth Bernal Segundo | Abogada y servidora pública",
+    title: "Lizbeth Bernal Segundo | Abogada y Síndica Municipal",
     description: "Perfil profesional de Lizbeth Bernal Segundo, abogada y servidora pública con experiencia en representación jurídica municipal, litigio y administración pública en el Estado de México.",
     keywords: [
       "Lizbeth Bernal Segundo",
       "Lizbeth Bernal",
-      "Abogada en el Estado de México",
+      "Abogada",
       "Síndica Municipal de Villa de Allende",
-      "Administración pública",
-      "Representación jurídica municipal",
-      "Experiencia jurídica",
-      "Servicio público",
-      "Villa de Allende",
-      "Derecho municipal",
+      "Administración Pública",
+      "Representación Jurídica",
+      "Estado de México",
     ],
     disclaimer: "Sitio personal de carácter profesional e informativo. No constituye propaganda electoral ni solicita apoyo o voto.",
-    legalReviewNotice: "Texto informativo sujeto a revisión legal antes de difusión pública.",
   },
 
   contact: {
     email: "contacto@lizbernal.mx",
-    isEmailPending: true, // true until officially provisioned on mail server
-    emailPendingNote: "Buzón de correspondencia profesional en proceso de habilitación técnica.",
+    isEmailPending: true,
+    emailPendingNote: "Buzón institucional en proceso de habilitación técnica.",
     locationText: "Villa de Allende, Estado de México",
-    socialLinks: [
-      // Only official and verified profiles to be linked when authorized
-    ],
   },
 
   hero: {
-    eyebrow: "ABOGADA · ADMINISTRACIÓN PÚBLICA · SERVICIO PÚBLICO",
-    heading: "Lizbeth Bernal Segundo",
-    headline: "Derecho y responsabilidad al servicio de la comunidad.",
-    description: "Abogada con experiencia en litigio privado, representación jurídica municipal y administración pública. Una trayectoria construida desde la legalidad, el análisis y el compromiso con el servicio público.",
-    ctaPrimary: "Conocer trayectoria",
-    ctaSecondary: "Contacto profesional",
+    badge: "ABOGADA · ADMINISTRACIÓN PÚBLICA · SINDICATURA",
+    headingMain: "Lizbeth Bernal",
+    headingAccent: "Segundo",
+    punchline: "Derecho, rigor técnico y vocación al servicio municipal.",
+    subtext: "Especialista en litigio privado, control presupuestal y defensa del patrimonio público en el Estado de México.",
+    stats: [
+      { value: "2025", label: "Sindicatura Activa", sub: "Villa de Allende" },
+      { value: "UVM", label: "Maestría en Curso", sub: "Campus Metepec" },
+      { value: "3+ Años", label: "Práctica Jurídica", sub: "Litigio y Tribunales" },
+    ],
   },
 
-  profile: {
-    title: "Una trayectoria construida desde el Derecho",
-    paragraphs: [
-      "Lizbeth Bernal Segundo es abogada y servidora pública. Su experiencia comenzó en el ejercicio jurídico privado, donde participó en la preparación de demandas, amparos, convenios, conciliaciones, comparecencias y trámites administrativos.",
-      "Actualmente aplica esa experiencia en la representación jurídica municipal y en responsabilidades vinculadas con la revisión administrativa, el patrimonio público y la defensa de los intereses del municipio.",
-    ],
-    highlights: [
+  profileBento: {
+    title: "Perfil y Especialidad",
+    subtitle: "Rigor jurídico aplicado al control y patrimonio municipal",
+    modes: [
       {
-        label: "Formación de Origen",
-        value: "Licenciatura en Derecho (ISIMA)",
+        id: "sindicatura",
+        label: "🏛️ Sindicatura Municipal",
+        badge: "2025 – Presente",
+        headline: "Defensa jurídica y salvaguarda del patrimonio público",
+        bullets: [
+          "Representación legal y defensa formal del Ayuntamiento en Cabildo.",
+          "Supervisión del presupuesto de egresos, finanzas y Tesorería.",
+          "Regularización e inscripción de inmuebles ante el Registro Público (RPPyC).",
+        ],
       },
       {
-        label: "Especialización Actual",
-        value: "Maestría en Administración Pública (UVM)",
+        id: "litigio",
+        label: "⚖️ Litigio Privado",
+        badge: "2019 – 2024",
+        headline: "Experiencia procesal en juzgados y tribunales de Toluca",
+        bullets: [
+          "Elaboración de demandas, recursos legales y juicios de amparo.",
+          "Comparecencia a audiencias jurisdiccionales y diligencias en fiscalías.",
+          "Mediación, redacción de convenios y acuerdos en conciliación.",
+        ],
       },
       {
-        label: "Enfoque Profesional",
-        value: "Legalidad, control patrimonial y defensa institucional",
+        id: "academico",
+        label: "🎓 Especialización Dual",
+        badge: "Derecho + Gobierno",
+        headline: "Técnica legal complementada con administración pública",
+        bullets: [
+          "Licenciatura en Derecho por ISIMA Universidad Toluca (2019–2022).",
+          "Maestría en Administración Pública en UVM Metepec (En curso 2025).",
+          "Enfoque en toma de decisiones estratégicas y gestión gubernamental.",
+        ],
       },
     ],
   },
@@ -114,96 +134,97 @@ export const PROFILE_DATA = {
     {
       id: "exp-1",
       number: "01",
-      title: "Representación jurídica municipal",
-      description: "Defensa de los derechos e intereses del municipio y representación legal del Ayuntamiento.",
-      details: [
-        "Defensa de los intereses y patrimonio municipal en procedimientos legales.",
-        "Representación jurídica del H. Ayuntamiento.",
-        "Apego estricto al marco normativo del Estado de México.",
+      title: "Representación Jurídica",
+      tag: "Sindicatura",
+      summary: "Defensa procesal e institucional de los derechos e intereses del Ayuntamiento.",
+      points: [
+        "Defensa legal del municipio en procedimientos contenciosos.",
+        "Representación formal del H. Ayuntamiento.",
+        "Apego al marco normativo del Estado de México.",
       ],
     },
     {
       id: "exp-2",
       number: "02",
-      title: "Responsabilidad administrativa",
-      description: "Revisión presupuestal, financiera y de Tesorería conforme a las atribuciones de la Sindicatura.",
-      details: [
-        "Seguimiento y revisión del ejercicio del presupuesto de egresos.",
-        "Supervisión de informes contables y financieros.",
-        "Revisión de cortes de caja y firmas de Tesorería Municipal.",
+      title: "Control Presupuestal",
+      tag: "Finanzas Públicas",
+      summary: "Revisión técnica de egresos, balances y supervisión de Tesorería.",
+      points: [
+        "Seguimiento y vigilancia del presupuesto de egresos.",
+        "Revisión de informes contables y cortes de caja.",
+        "Verificación formal de firmas de Tesorería Municipal.",
       ],
     },
     {
       id: "exp-3",
       number: "03",
-      title: "Patrimonio municipal",
-      description: "Participación en inventarios, regularización e inscripción de bienes inmuebles municipales.",
-      details: [
-        "Intervención en la formulación de inventarios de bienes del municipio.",
-        "Procesos de regularización de la propiedad municipal.",
-        "Inscripción ante el Registro Público de la Propiedad y del Comercio.",
+      title: "Patrimonio Municipal",
+      tag: "Bienes Públicos",
+      summary: "Formulación de inventarios y regularización de bienes inmuebles.",
+      points: [
+        "Actualización de inventarios de bienes del municipio.",
+        "Regularización de títulos y propiedades municipales.",
+        "Inscripción ante el Registro Público de la Propiedad (RPPyC).",
       ],
     },
     {
       id: "exp-4",
       number: "04",
-      title: "Experiencia jurídica",
-      description: "Elaboración de demandas, amparos, convenios, conciliaciones, comparecencias y trámites administrativos.",
-      details: [
-        "Redacción de demandas, amparos y promociones procesales.",
-        "Elaboración de convenios y representación en audiencias de conciliación.",
-        "Comparecencias ante órganos jurisdiccionales y fiscalías.",
+      title: "Litigio & Amparo",
+      tag: "Práctica Procesal",
+      summary: "Redacción de demandas, amparos, convenios y desahogo de audiencias.",
+      points: [
+        "Elaboración de demandas, recursos procesales y amparos.",
+        "Comparecencias ante fiscalías y juzgados civiles.",
+        "Mediación y formalización de convenios legales.",
       ],
     },
   ] as ExpertiseItem[],
 
   timeline: [
     {
-      id: "time-1",
+      id: "t-1",
       role: "Síndica Municipal",
       institution: "H. Ayuntamiento de Villa de Allende",
-      location: "Villa de Allende, Estado de México",
-      period: "Enero de 2025 – Actualidad",
+      location: "Villa de Allende, Edo. Méx.",
+      period: "2025 – Actualidad",
       current: true,
-      responsibilities: [
-        "Representación legal del Ayuntamiento y defensa de los derechos e intereses del municipio.",
-        "Revisión de informes contables y financieros del ejercicio presupuestal.",
-        "Seguimiento y control del presupuesto de egresos.",
-        "Revisión de firmas y cortes de caja de la Tesorería Municipal.",
-        "Participación activa en sesiones de Cabildo.",
-        "Intervención en la formulación de inventarios municipales.",
-        "Regularización de la propiedad de bienes inmuebles municipales.",
-        "Inscripción de bienes municipales ante el Registro Público de la Propiedad y del Comercio.",
+      category: "public",
+      tag: "Servicio Público",
+      highlights: [
+        "Representación legal del Ayuntamiento y sesiones de Cabildo.",
+        "Supervisión del presupuesto de egresos y cortes de caja de Tesorería.",
+        "Inventarios e inscripción de bienes municipales en el Registro Público.",
       ],
     },
     {
-      id: "time-2",
+      id: "t-2",
       role: "Abogada Junior",
       institution: "Jurídico Montes de Oca y Asociados",
-      location: "Toluca, Estado de México",
-      period: "Septiembre de 2022 – Octubre de 2024",
+      location: "Toluca, Edo. Méx.",
+      period: "2022 – 2024",
       current: false,
-      responsibilities: [
-        "Redacción de demandas y recursos legales.",
-        "Comparecencia a juicios y desahogo de audiencias.",
-        "Elaboración de convenios y acuerdos legales.",
-        "Representación jurídica en procesos de conciliación.",
-        "Redacción y seguimiento de juicios de amparo.",
+      category: "private",
+      tag: "Litigio Privado",
+      highlights: [
+        "Redacción de demandas y seguimiento a juicios de amparo.",
+        "Comparecencia a juicios y desahogo de audiencias procesales.",
+        "Negociación y elaboración de convenios conciliatorios.",
       ],
     },
     {
-      id: "time-3",
+      id: "t-3",
       role: "Abogada Junior",
       institution: "Galeana & Asociados",
-      location: "Toluca, Estado de México",
-      period: "Enero de 2019 – Septiembre de 2022",
+      location: "Toluca, Edo. Méx.",
+      period: "2019 – 2022",
       current: false,
-      responsibilities: [
-        "Asistencia legal integral en litigio civil y administrativo.",
-        "Redacción de demandas, promociones y escritos procesales.",
-        "Comparecencias y diligencias ante fiscalías.",
-        "Atención al público y asesoría jurídica inicial.",
-        "Gestión y seguimiento de trámites administrativos.",
+      category: "private",
+      tag: "Práctica Jurídica",
+      highlights: [
+        "Redacción de demandas, promociones y escritos legales.",
+        "Comparecencias ante fiscalías y gestión de trámites administrativos.",
+        "Atención al público y asesoría legal personalizada.",
       ],
     },
   ] as TimelineItem[],
@@ -214,54 +235,67 @@ export const PROFILE_DATA = {
       degree: "Maestría en Administración Pública",
       institution: "Universidad del Valle de México (UVM)",
       campus: "Campus Metepec",
-      period: "Enero de 2025 – Actualidad",
+      period: "2025 – En curso",
       status: "in_progress",
       statusLabel: "En curso",
-      description: "Especialización enfocada en la gestión gubernamental estratégica, planeación pública, finanzas gubernamentales y políticas de impacto institucional.",
+      tag: "Posgrado",
+      highlights: [
+        "Planeación estratégica gubernamental y políticas públicas.",
+        "Finanzas públicas, auditoría y control institucional.",
+        "Gestión directiva en administraciones municipales.",
+      ],
     },
     {
       id: "edu-2",
       degree: "Licenciatura en Derecho",
       institution: "ISIMA Universidad",
       campus: "Toluca, Estado de México",
-      period: "Enero de 2019 – Diciembre de 2022",
+      period: "2019 – 2022",
       status: "completed",
       statusLabel: "Concluida",
-      description: "Formación integral en ciencias jurídicas con énfasis en derecho procesal, constitucional, administrativo y técnica de litigio.",
+      tag: "Licenciatura",
+      highlights: [
+        "Formación integral en ciencias jurídicas y derecho procesal.",
+        "Técnica de litigio civil, mercantil y amparo constitucional.",
+        "Derecho administrativo y marco normativo mexiquense.",
+      ],
     },
   ] as EducationItem[],
 
   statement: {
-    eyebrow: "LEGALIDAD · RESPONSABILIDAD · COMUNIDAD",
-    quote: "El ejercicio del Derecho también es una forma de servicio.",
-    caption: "Principio rector del ejercicio profesional y de la función pública municipal.",
+    badge: "VALORES RECTORES",
+    punchline: "El ejercicio del Derecho es una herramienta de servicio y certeza pública.",
+    tags: ["LEGALIDAD", "RESPONSABILIDAD", "COMUNIDAD"],
   },
 
   principles: [
     {
       id: "prin-1",
       title: "Legalidad",
-      tagline: "Apego al marco normativo",
-      description: "Cada acción y procedimiento se fundamenta estrictamente en el orden jurídico vigente, garantizando certeza y debido proceso institucional.",
+      tagline: "Apego estricto a la norma",
+      iconName: "scale",
+      description: "Actuación fundada en el marco jurídico vigente para garantizar certeza y debido proceso institucional.",
     },
     {
       id: "prin-2",
       title: "Responsabilidad",
-      tagline: "Cuidado de los recursos y patrimonio",
-      description: "Supervisión rigurosa del presupuesto de egresos, revisión financiera y salvaguarda formal de los bienes que pertenecen al municipio.",
+      tagline: "Protección patrimonial y fiscal",
+      iconName: "shield",
+      description: "Supervisión rigurosa del presupuesto de egresos y cuidado formal de los bienes del municipio.",
     },
     {
       id: "prin-3",
-      title: "Servicio a la comunidad",
-      tagline: "Compromiso con el bienestar público",
-      description: "Ejercicio del Derecho con sentido ético y vocación social, orientando la labor jurídica a la protección de los intereses colectivos.",
+      title: "Servicio a la Comunidad",
+      tagline: "Compromiso de cercanía",
+      iconName: "heart",
+      description: "Práctica jurídica con sentido ético y vocación social para proteger los intereses colectivos.",
     },
   ] as PrincipleItem[],
 
   cta: {
-    title: "Una trayectoria profesional al servicio de lo público",
-    description: "Conoce el perfil, la preparación y la experiencia jurídica de Lizbeth Bernal Segundo.",
-    buttonPrimary: "Contacto profesional",
-    buttonSecondary: "Volver al inicio",
+    badge: "CONEXIÓN DIRECTA",
+    title: "¿Tienes un asunto o consulta profesional?",
+    subtitle: "Canal de correspondencia para temas jurídicos e institucionales.",
+    buttonText: "Enviar mensaje",
   },
 };

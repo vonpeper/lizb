@@ -66,7 +66,7 @@ export default async function Image() {
               style={{
                 width: "56px",
                 height: "56px",
-                borderRadius: "50%",
+                borderRadius: "16px",
                 backgroundColor: "#FFE4DC",
                 border: "2px solid #EADDD8",
                 display: "flex",
@@ -80,10 +80,10 @@ export default async function Image() {
               {PROFILE_DATA.personal.monogram}
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <span style={{ fontSize: "16px", fontWeight: "bold", color: "#181412" }}>
+              <span style={{ fontSize: "18px", fontWeight: "bold", color: "#181412" }}>
                 {PROFILE_DATA.personal.fullName}
               </span>
-              <span style={{ fontSize: "12px", color: "#6B605C", textTransform: "uppercase" }}>
+              <span style={{ fontSize: "12px", color: "#B94F3D", fontWeight: "600", textTransform: "uppercase" }}>
                 {PROFILE_DATA.personal.location}
               </span>
             </div>
@@ -97,12 +97,12 @@ export default async function Image() {
               border: "1px solid #EADDD8",
               color: "#B94F3D",
               fontSize: "13px",
-              fontWeight: "600",
+              fontWeight: "700",
               letterSpacing: "1px",
               textTransform: "uppercase",
             }}
           >
-            Perfil Profesional
+            Síndica Municipal
           </div>
         </div>
 
@@ -111,9 +111,9 @@ export default async function Image() {
           <div
             style={{
               fontSize: "64px",
-              fontWeight: "bold",
+              fontWeight: "900",
               color: "#181412",
-              lineHeight: 1.1,
+              lineHeight: 1.05,
               letterSpacing: "-1px",
             }}
           >
@@ -121,23 +121,23 @@ export default async function Image() {
           </div>
           <div
             style={{
-              fontSize: "30px",
+              fontSize: "28px",
               color: "#B94F3D",
-              fontStyle: "italic",
+              fontWeight: "700",
               lineHeight: 1.2,
             }}
           >
-            {PROFILE_DATA.hero.headline}
+            {PROFILE_DATA.hero.punchline}
           </div>
           <div
             style={{
               fontSize: "18px",
-              color: "#6B605C",
+              color: "#5E524E",
               maxWidth: "850px",
               lineHeight: 1.5,
             }}
           >
-            Abogada &middot; Síndica Municipal &middot; Maestrante en Administración Pública
+            Abogada &middot; Síndica Municipal &middot; Maestrante en Administración Pública (UVM)
           </div>
         </div>
 
@@ -152,10 +152,10 @@ export default async function Image() {
             zIndex: 10,
           }}
         >
-          <div style={{ fontSize: "14px", color: "#6B605C" }}>
+          <div style={{ fontSize: "14px", color: "#5E524E", fontWeight: "600" }}>
             {PROFILE_DATA.site.domain}
           </div>
-          <div style={{ fontSize: "14px", color: "#B94F3D", fontWeight: "600" }}>
+          <div style={{ fontSize: "14px", color: "#B94F3D", fontWeight: "700" }}>
             Legalidad &middot; Responsabilidad &middot; Servicio a la Comunidad
           </div>
         </div>
