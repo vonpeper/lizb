@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { PROFILE_DATA } from "@/data/profile";
-import { ArrowUpRight, Scale, Shield, Landmark, Sparkles, ChevronRight, Check, Zap } from "lucide-react";
+import { ArrowUpRight, Scale, Shield, Landmark, Sparkles, ChevronRight, Check } from "lucide-react";
 
 interface HeroProps {
   onOpenContact: () => void;
@@ -69,19 +69,19 @@ export function Hero({ onOpenContact }: HeroProps) {
       className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-14 lg:pt-32 lg:pb-20 overflow-hidden bg-[#FFFDFC] bg-grid-pattern"
       aria-label="Presentación principal"
     >
-      {/* 2026 Apple Ambient Glowing Aura */}
+      {/* Apple Ambient Glowing Aura */}
       <div className="absolute top-1/4 right-0 w-[500px] sm:w-[650px] h-[500px] sm:h-[650px] rounded-full bg-gradient-to-br from-[#FFE4DC] via-[#F6B6A6]/40 to-transparent blur-3xl pointer-events-none animate-pulse-glow" />
       <div className="absolute -bottom-10 -left-10 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] rounded-full bg-gradient-to-tr from-[#FFF6F2] via-[#FFE4DC]/50 to-transparent blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
         
-        {/* Main Grid: Mobile Optimized & Desktop Apple Keynote */}
+        {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Column Left / Top: Modern Identity & Headline */}
+          {/* Column Left: Identity & Keynote Presentation */}
           <div className="lg:col-span-7 flex flex-col space-y-5 sm:space-y-6">
             
-            {/* Live Status Chip (Apple Dynamic Island Style) */}
+            {/* Live Status Chip */}
             <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-[#FFF6F2] border border-[#EADDD8] text-[#B94F3D] text-[11px] sm:text-xs font-extrabold tracking-wider uppercase shadow-subtle hover:border-[#E88771] transition-all">
               <span className="flex h-2.5 w-2.5 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E88771] opacity-75" />
@@ -100,12 +100,12 @@ export function Hero({ onOpenContact }: HeroProps) {
               </p>
             </div>
 
-            {/* Crisp 1-sentence Pitch */}
+            {/* Concise Pitch */}
             <p className="text-[#5E524E] text-base sm:text-lg leading-relaxed max-w-xl font-medium">
               Representación legal institucional, defensa del patrimonio municipal y práctica jurídica con rigor normativo en el Estado de México.
             </p>
 
-            {/* Interactive 3-Tab Card Switcher (Mobile & Desktop) */}
+            {/* Interactive 3-Tab Card Switcher */}
             <div className="p-4 sm:p-5 rounded-3xl bg-[#FFFDFC]/90 border border-[#EADDD8] shadow-card space-y-3.5 backdrop-blur-md">
               <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[#FFF6F2] border border-[#EADDD8]/80 overflow-x-auto">
                 {heroTabs.map((tab, idx) => (
@@ -156,7 +156,7 @@ export function Hero({ onOpenContact }: HeroProps) {
               </div>
             </div>
 
-            {/* Quick Action Buttons */}
+            {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
               <a
                 href="#perfil"
@@ -178,11 +178,11 @@ export function Hero({ onOpenContact }: HeroProps) {
             </div>
           </div>
 
-          {/* Column Right: Sleek Portrait Showcase with Floating Chips */}
+          {/* Column Right: Portrait of Lizbeth Bernal with Glowing Floating Chips */}
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-sm sm:max-w-md">
               
-              {/* Floating Chips */}
+              {/* Floating Chip 1 */}
               <div className="absolute -top-3 -left-2 z-20 flex items-center gap-2 p-2.5 rounded-2xl bg-[#FFFDFC]/95 backdrop-blur-md border border-[#EADDD8] shadow-card animate-float-slow">
                 <span className="w-7 h-7 rounded-xl bg-[#FFE4DC] flex items-center justify-center text-[#B94F3D] text-xs font-extrabold">
                   ⚖️
@@ -193,6 +193,7 @@ export function Hero({ onOpenContact }: HeroProps) {
                 </div>
               </div>
 
+              {/* Floating Chip 2 */}
               <div className="absolute -bottom-3 -right-2 z-20 flex items-center gap-2 p-2.5 rounded-2xl bg-[#FFFDFC]/95 backdrop-blur-md border border-[#EADDD8] shadow-card animate-float-delayed">
                 <span className="w-7 h-7 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 text-xs font-extrabold">
                   ✓
@@ -204,38 +205,29 @@ export function Hero({ onOpenContact }: HeroProps) {
               </div>
 
               {/* Glowing Outer Aura */}
-              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#B94F3D] via-[#E88771] to-[#F6B6A6] opacity-35 blur-xl" />
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#B94F3D] via-[#E88771] to-[#F6B6A6] opacity-40 blur-xl" />
 
-              {/* Portrait Container */}
+              {/* Portrait Frame Container */}
               <div className="relative rounded-3xl bg-[#FFFDFC] border border-[#EADDD8] p-3.5 sm:p-4 shadow-card overflow-hidden">
-                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-gradient-to-b from-[#FFF6F2] via-[#FFE4DC]/50 to-[#FFFDFC] flex flex-col items-center justify-center text-center p-6 border border-[#EADDD8]">
+                <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full rounded-2xl overflow-hidden bg-gradient-to-b from-[#FFF6F2] via-[#FFE4DC]/50 to-[#FFFDFC] flex flex-col items-center justify-center text-center border border-[#EADDD8]">
                   
                   {!imageError ? (
                     <Image
-                      src={PROFILE_DATA.personal.portraitPath}
+                      src="/images/lizbeth-bernal-retrato.jpg"
                       alt={PROFILE_DATA.personal.portraitAlt}
                       fill
                       priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 450px"
+                      sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 450px"
                       className="object-cover object-top"
                       onError={() => setImageError(true)}
                     />
-                  ) : null}
-
-                  {/* 2026 Visual Graphic Box */}
-                  {imageError && (
-                    <div className="flex flex-col items-center justify-center space-y-3.5 max-w-xs">
-                      <div className="relative">
-                        <div className="w-20 sm:w-24 h-20 sm:h-24 rounded-3xl bg-gradient-to-tr from-[#FFE4DC] to-[#F6B6A6] border-2 border-[#EADDD8] flex items-center justify-center shadow-card">
-                          <span className="font-extrabold text-3xl text-[#B94F3D]">
-                            {PROFILE_DATA.personal.monogram}
-                          </span>
-                        </div>
-                        <span className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#181412] text-white flex items-center justify-center text-xs">
-                          ⚖️
+                  ) : (
+                    <div className="flex flex-col items-center justify-center space-y-3.5 max-w-xs p-6">
+                      <div className="w-20 h-20 rounded-3xl bg-gradient-to-tr from-[#FFE4DC] to-[#F6B6A6] border-2 border-[#EADDD8] flex items-center justify-center shadow-card">
+                        <span className="font-extrabold text-3xl text-[#B94F3D]">
+                          {PROFILE_DATA.personal.monogram}
                         </span>
                       </div>
-
                       <div className="space-y-0.5">
                         <h3 className="font-extrabold text-xl text-[#181412]">
                           {PROFILE_DATA.personal.fullName}
@@ -244,15 +236,11 @@ export function Hero({ onOpenContact }: HeroProps) {
                           Perfil Profesional
                         </p>
                       </div>
-
-                      <div className="px-3.5 py-1.5 rounded-xl bg-white/90 backdrop-blur-sm border border-[#EADDD8] text-[11px] text-[#5E524E] font-medium">
-                        Fotografía en proceso para <span className="font-bold text-[#181412]">{PROFILE_DATA.site.domain}</span>
-                      </div>
                     </div>
                   )}
 
                   {/* Bottom Pill */}
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#FFFDFC]/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-[#EADDD8] flex items-center justify-between text-left shadow-sm">
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#FFFDFC]/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-[#EADDD8] flex items-center justify-between text-left shadow-sm z-10">
                     <div>
                       <p className="text-xs font-extrabold text-[#181412] leading-tight">
                         {PROFILE_DATA.personal.currentRole}

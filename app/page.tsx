@@ -11,7 +11,6 @@ import { ParallaxStatement } from "@/components/parallax-statement";
 import { Principles } from "@/components/principles";
 import { ContactCta } from "@/components/contact-cta";
 import { ContactModal } from "@/components/contact-modal";
-import { DynamicDock } from "@/components/dynamic-dock";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -47,9 +46,6 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Persistent iOS Dynamic Dock */}
-      <DynamicDock onOpenContact={handleOpenContact} />
 
       {/* Contact Modal */}
       <ContactModal isOpen={isContactOpen} onClose={handleCloseContact} />
