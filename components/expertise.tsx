@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { PROFILE_DATA } from "@/data/profile";
 import { Scale, FileCheck2, Building2, BookOpen, Sparkles, CheckCircle2, ArrowRight } from "lucide-react";
@@ -28,17 +29,17 @@ export function Expertise() {
         <div className="max-w-3xl space-y-3 mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF6F2] border border-[#EADDD8] text-[#B94F3D] text-xs font-extrabold tracking-wider uppercase shadow-subtle">
             <Sparkles className="w-3.5 h-3.5 text-[#E88771]" />
-            <span>4 Áreas de Acción</span>
+            <span>4 Pilares de Ejercicio</span>
           </div>
           <h2 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#181412]">
             Especialidad Jurídica & Municipal
           </h2>
           <p className="text-base sm:text-lg text-[#5E524E] font-medium">
-            Pilares técnicos de acción en tribunales y gestión pública en el Estado de México.
+            Práctica jurídica adaptada al marco normativo municipal y al sistema legal mexicano.
           </p>
         </div>
 
-        {/* 4 Feature Cards Grid */}
+        {/* 4 Feature Cards Grid with Authentic Image Accents */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {items.map((item) => {
             const isHovered = selectedId === item.id;
@@ -46,18 +47,31 @@ export function Expertise() {
               <div
                 key={item.id}
                 onMouseEnter={() => setSelectedId(item.id)}
-                className={`p-7 sm:p-8 rounded-3xl border transition-all duration-300 flex flex-col justify-between cursor-pointer ${
+                className={`relative p-7 sm:p-8 rounded-3xl border transition-all duration-300 flex flex-col justify-between cursor-pointer overflow-hidden group ${
                   isHovered
                     ? "bg-gradient-to-br from-[#FFFDFC] via-[#FFF6F2] to-[#FFE4DC]/50 border-[#E88771] shadow-card scale-[1.01]"
                     : "bg-[#FFFDFC] border-[#EADDD8] shadow-subtle hover:border-[#F6B6A6]"
                 }`}
               >
-                <div className="space-y-4">
+                {/* Background Authentic Photo Blend */}
+                {item.image && (
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover opacity-15 group-hover:scale-105 group-hover:opacity-25 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/90 to-[#FFFDFC]/65" />
+                  </div>
+                )}
+
+                <div className="relative z-10 space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] border border-[#EADDD8] flex items-center justify-center shadow-sm">
                       {iconMap[item.id] || <Scale className="w-6 h-6 text-[#B94F3D]" />}
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-[#FFF6F2] border border-[#EADDD8] text-[11px] font-extrabold text-[#B94F3D]">
+                    <span className="px-3 py-1 rounded-full bg-[#FFF6F2]/90 backdrop-blur-sm border border-[#EADDD8] text-[11px] font-extrabold text-[#B94F3D]">
                       {item.tag}
                     </span>
                   </div>
@@ -72,7 +86,7 @@ export function Expertise() {
                   </div>
 
                   {/* Bullet Pills */}
-                  <div className="space-y-2 pt-2 border-t border-[#EADDD8]">
+                  <div className="space-y-2 pt-2 border-t border-[#EADDD8]/80">
                     {item.points?.map((point, idx) => (
                       <div key={idx} className="flex items-center gap-2.5 text-xs text-[#181412] font-semibold">
                         <CheckCircle2 className="w-4 h-4 text-[#B94F3D] shrink-0" />
@@ -82,9 +96,9 @@ export function Expertise() {
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-[#EADDD8]/70 flex items-center justify-between text-xs font-bold text-[#B94F3D]">
+                <div className="relative z-10 pt-4 mt-4 border-t border-[#EADDD8]/70 flex items-center justify-between text-xs font-bold text-[#B94F3D]">
                   <span className="uppercase tracking-wider text-[10px]">Atribución Municipal</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             );

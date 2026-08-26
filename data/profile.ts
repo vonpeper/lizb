@@ -45,6 +45,7 @@ export interface ProfileData {
     title: string;
     tag: string;
     summary: string;
+    image?: string;
     points: string[];
   }[];
   timeline: {
@@ -64,6 +65,7 @@ export interface ProfileData {
     institution: string;
     campus?: string;
     period: string;
+    image?: string;
     status: "in_progress" | "completed";
     statusLabel: string;
     highlights: string[];
@@ -189,6 +191,7 @@ export const PROFILE_DATA: ProfileData = {
       title: "Representación Jurídica Municipal",
       tag: "Art. 52 Ley Orgánica",
       summary: "Mandato legal y defensa en controversias y juicios.",
+      image: "/images/mexican-law-codigo-nacional.jpg",
       points: [
         "Representación del Ayuntamiento ante tribunales",
         "Revisión de contratos y convenios oficiales",
@@ -200,6 +203,7 @@ export const PROFILE_DATA: ProfileData = {
       title: "Protección y Registro del Patrimonio",
       tag: "Certeza Jurídica",
       summary: "Custodia e inscripción de bienes muebles e inmuebles.",
+      image: "/images/villa-allende-plaza-monumento.jpg",
       points: [
         "Actualización del inventario general de bienes",
         "Trámites de escrituración y registro RPPyC",
@@ -211,6 +215,7 @@ export const PROFILE_DATA: ProfileData = {
       title: "Vigilancia de la Hacienda Pública",
       tag: "Control Financiero",
       summary: "Supervisión de cortes de caja y presupuestos.",
+      image: "/images/mexican-law-expedientes-tomo.jpg",
       points: [
         "Revisión mensual de ingresos y egresos de Tesorería",
         "Fiscalización de cuentas públicas municipales",
@@ -222,6 +227,7 @@ export const PROFILE_DATA: ProfileData = {
       title: "Técnica Procesal y Litigio",
       tag: "Práctica Forense",
       summary: "Experiencia en salas judiciales y tribunales de Toluca.",
+      image: "/images/mexican-law-balanza-libros.png",
       points: [
         "Elaboración de demandas y recursos de amparo",
         "Estrategias procesales en materia civil y mercantil",
@@ -281,6 +287,7 @@ export const PROFILE_DATA: ProfileData = {
       institution: "Universidad del Valle de México (UVM)",
       campus: "Campus Metepec",
       period: "Enero 2025 – Presente",
+      image: "/images/villa-allende-scenic.jpg",
       status: "in_progress",
       statusLabel: "En curso",
       highlights: [
@@ -295,6 +302,7 @@ export const PROFILE_DATA: ProfileData = {
       institution: "ISIMA Universidad",
       campus: "Toluca, Estado de México",
       period: "2019 – 2022",
+      image: "/images/mexican-law-codigo-nacional.jpg",
       status: "completed",
       statusLabel: "Concluida con Título",
       highlights: [
@@ -311,7 +319,7 @@ export const PROFILE_DATA: ProfileData = {
       category: "cabildo",
       categoryLabel: "Cabildo & Sindicatura",
       date: "2025 · Villa de Allende",
-      image: "/images/activity-cabildo.jpg",
+      image: "/images/mexican-law-expedientes-tomo.jpg",
       summary: "Toma de protesta y análisis de los primeros acuerdos de gobernanza y legalidad para el periodo municipal en Villa de Allende.",
       tags: ["Cabildo", "Marco Normativo", "Villa de Allende"],
     },
@@ -321,7 +329,7 @@ export const PROFILE_DATA: ProfileData = {
       category: "patrimonio",
       categoryLabel: "Patrimonio Municipal",
       date: "2025 · Villa de Allende",
-      image: "/images/villa-allende-town.jpg",
+      image: "/images/villa-allende-plaza-monumento.jpg",
       summary: "Revisión técnica de escrituración e inscripción de bienes de dominio público en el Registro Público de la Propiedad.",
       tags: ["Patrimonio", "RPPyC", "Bienes Públicos"],
     },
@@ -331,7 +339,7 @@ export const PROFILE_DATA: ProfileData = {
       category: "academico",
       categoryLabel: "Gestión Pública UVM",
       date: "2025 · UVM Metepec",
-      image: "/images/villa-allende-scenic.jpg",
+      image: "/images/mexican-law-codigo-nacional.jpg",
       summary: "Actualización técnica en fiscalización de la Hacienda Municipal y modernización del gasto público local.",
       tags: ["UVM Metepec", "Hacienda Pública", "Transparencia"],
     },

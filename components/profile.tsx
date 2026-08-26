@@ -35,17 +35,17 @@ export function Profile() {
           </p>
         </div>
 
-        {/* Bento Grid with Authentic Villa de Allende Scenery & Gradient Overlays */}
+        {/* Bento Grid Architecture */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           
           {/* Bento 1: Large Interactive Card with Dynamic Tab Content (Span 8) */}
           <div className="md:col-span-12 lg:col-span-8 relative p-6 sm:p-8 rounded-3xl bg-[#FFFDFC] border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group">
             
-            {/* Subtle landscape silhouette */}
+            {/* Authentic Mexican Law & Villa de Allende Scenery in Background */}
             <div className="absolute top-0 right-0 w-2/3 h-full opacity-15 pointer-events-none overflow-hidden hidden sm:block">
               <Image
-                src="/images/villa-allende-scenic.jpg"
-                alt="Paisaje de Villa de Allende"
+                src="/images/mexican-law-codigo-nacional.jpg"
+                alt="Derecho Mexicano y Villa de Allende"
                 fill
                 className="object-cover object-right"
               />
@@ -105,17 +105,17 @@ export function Profile() {
             </div>
           </div>
 
-          {/* Bento 2: Sindicatura Municipal Card with Villa de Allende Plaza Image (Span 4) */}
+          {/* Bento 2: Sindicatura Municipal Card with Real Plaza y Monumento de Villa de Allende (Span 4) */}
           <div className="md:col-span-12 lg:col-span-4 relative p-6 sm:p-8 rounded-3xl text-white flex flex-col justify-between shadow-floating overflow-hidden group min-h-[320px]">
-            {/* Background Image: Villa de Allende Plaza & Palacio Municipal */}
+            {/* Background Image: Real Plaza y Monumento de Villa de Allende */}
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/villa-allende-town.jpg"
-                alt="Palacio Municipal y Plaza de Villa de Allende"
+                src="/images/villa-allende-plaza-monumento.jpg"
+                alt="Plaza y Monumento de Villa de Allende, Estado de México"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/85 to-[#181412]/40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/80 to-[#181412]/35" />
             </div>
 
             {/* Content */}
@@ -164,7 +164,7 @@ export function Profile() {
             </div>
           </div>
 
-          {/* Bento 3: Formación Posgrado with Scenic Mountain Backdrop (Span 6) */}
+          {/* Bento 3: Formación Posgrado (Span 6) */}
           <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[290px]">
             {/* Background Scenic Landscape with Soft Gradient */}
             <div className="absolute inset-0 z-0">
@@ -207,15 +207,15 @@ export function Profile() {
             </div>
           </div>
 
-          {/* Bento 4: Licenciatura en Derecho (Span 6) */}
+          {/* Bento 4: Licenciatura en Derecho con Código Nacional y Balanza (Span 6) */}
           <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[290px]">
-            {/* Background Image with Warm Gradient */}
+            {/* Background Image: Código Nacional de Procedimientos Civiles y Familiares */}
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/villa-allende-town.jpg"
-                alt="Formación Jurídica y Litigio"
+                src="/images/mexican-law-codigo-nacional.jpg"
+                alt="Código Nacional de Procedimientos Civiles y Familiares - Derecho Mexicano"
                 fill
-                className="object-cover opacity-15 group-hover:scale-105 group-hover:opacity-25 transition-all duration-700"
+                className="object-cover opacity-25 group-hover:scale-105 group-hover:opacity-35 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/90 to-[#FFFDFC]/60" />
             </div>
