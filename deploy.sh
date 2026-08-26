@@ -50,6 +50,12 @@ ssh -i "$SSH_KEY" -p "$VPS_PORT" "$VPS_USER@$VPS_HOST" 'bash -s' << 'EOF'
     --label "traefik.http.routers.lizbernal-www.entrypoints=websecure" \
     --label "traefik.http.routers.lizbernal-www.tls.certresolver=letsencrypt-dns" \
     --label "traefik.http.routers.lizbernal-www.service=lizbernal" \
+    --label "traefik.http.routers.lizbernal-apex-http.rule=Host(\`lizbernal.mx\`)" \
+    --label "traefik.http.routers.lizbernal-apex-http.entrypoints=web" \
+    --label "traefik.http.routers.lizbernal-apex-http.service=lizbernal" \
+    --label "traefik.http.routers.lizbernal-www-http.rule=Host(\`www.lizbernal.mx\`)" \
+    --label "traefik.http.routers.lizbernal-www-http.entrypoints=web" \
+    --label "traefik.http.routers.lizbernal-www-http.service=lizbernal" \
     --label "traefik.http.services.lizbernal.loadbalancer.server.port=3000" \
     lizbernal-app:latest
 
