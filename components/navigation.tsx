@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { PROFILE_DATA } from "@/data/profile";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
 
 interface NavigationProps {
   onOpenContact: () => void;
@@ -15,8 +15,9 @@ export function Navigation({ onOpenContact }: NavigationProps) {
 
   const navLinks = [
     { href: "#inicio", label: "Inicio", id: "inicio" },
-    { href: "#perfil", label: "Perfil", id: "perfil" },
-    { href: "#experiencia", label: "Experiencia", id: "experiencia" },
+    { href: "#perfil", label: "Perfil Bento", id: "perfil" },
+    { href: "#areas", label: "Áreas", id: "areas" },
+    { href: "#experiencia", label: "Trayectoria", id: "experiencia" },
     { href: "#formacion", label: "Formación", id: "formacion" },
     { href: "#principios", label: "Principios", id: "principios" },
   ];
@@ -25,8 +26,8 @@ export function Navigation({ onOpenContact }: NavigationProps) {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ["inicio", "perfil", "experiencia", "formacion", "principios", "contacto"];
-      const scrollPosition = window.scrollY + 200;
+      const sections = ["inicio", "perfil", "areas", "experiencia", "formacion", "principios", "contacto"];
+      const scrollPosition = window.scrollY + 220;
 
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -47,7 +48,6 @@ export function Navigation({ onOpenContact }: NavigationProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -65,7 +65,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
     const targetId = href.replace("#", "");
     const target = document.getElementById(targetId);
     if (target) {
-      const offset = 80;
+      const offset = 85;
       const elementPosition = target.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       window.scrollTo({
@@ -80,82 +80,92 @@ export function Navigation({ onOpenContact }: NavigationProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#FFFDFC]/90 backdrop-blur-md border-b border-[#EADDD8]/80 py-3.5 shadow-subtle"
-            : "bg-transparent py-5"
+            ? "py-3 px-3 sm:px-6"
+            : "py-5 px-4 sm:px-8"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {/* Monogram Brand */}
-            <a
-              href="#inicio"
-              onClick={(e) => handleNavClick(e, "#inicio")}
-              className="group flex items-center gap-3 focus-visible:ring-2 focus-visible:ring-[#B94F3D] rounded-lg p-1 transition-opacity"
-              aria-label="Lizbeth Bernal Segundo - Inicio"
-            >
-              <span className="w-10 h-10 rounded-full bg-[#FFE4DC] border border-[#EADDD8] flex items-center justify-center font-serif text-lg font-semibold text-[#B94F3D] group-hover:bg-[#F6B6A6]/40 transition-colors duration-200">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          {/* Brand Logo & Live Status */}
+          <a
+            href="#inicio"
+            onClick={(e) => handleNavClick(e, "#inicio")}
+            className="group flex items-center gap-3 p-1.5 rounded-2xl bg-[#FFFDFC]/80 backdrop-blur-md border border-[#EADDD8] hover:border-[#E88771] transition-all duration-200 shadow-sm"
+            aria-label="Lizbeth Bernal Segundo - Inicio"
+          >
+            <div className="relative">
+              <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] flex items-center justify-center font-bold text-sm text-[#B94F3D] shadow-sm group-hover:scale-105 transition-transform">
                 {PROFILE_DATA.personal.monogram}
               </span>
-              <div className="flex flex-col">
-                <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-[#181412] leading-none">
-                  {PROFILE_DATA.personal.fullName}
-                </span>
-                <span className="text-[11px] font-sans tracking-wider uppercase text-[#6B605C] mt-0.5">
-                  Abogada &middot; Servidora Pública
-                </span>
-              </div>
-            </a>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-1 bg-[#FFF6F2]/80 border border-[#EADDD8] rounded-full px-3 py-1.5 backdrop-blur-sm" aria-label="Navegación principal">
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.id;
-                return (
-                  <a
-                    key={link.id}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 ${
-                      isActive
-                        ? "bg-[#B94F3D] text-white shadow-sm"
-                        : "text-[#6B605C] hover:text-[#181412] hover:bg-[#FFE4DC]/50"
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
-            </nav>
-
-            {/* Right Action: Contact button */}
-            <div className="hidden md:flex items-center">
-              <button
-                type="button"
-                onClick={onOpenContact}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wide bg-[#181412] text-white hover:bg-[#B94F3D] focus-visible:ring-2 focus-visible:ring-[#B94F3D] transition-all duration-200 shadow-sm"
-              >
-                <span>Contacto</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
+              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-[#FFFDFC] animate-pulse" />
             </div>
 
-            {/* Mobile Hamburger */}
-            <div className="flex items-center md:hidden">
-              <button
-                type="button"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg text-[#181412] hover:bg-[#FFE4DC] focus-visible:ring-2 focus-visible:ring-[#B94F3D] transition-colors"
-                aria-expanded={mobileMenuOpen}
-                aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-              >
-                {mobileMenuOpen ? (
-                  <X className="w-6 h-6" aria-hidden="true" />
-                ) : (
-                  <Menu className="w-6 h-6" aria-hidden="true" />
-                )}
-              </button>
+            <div className="flex flex-col pr-2">
+              <span className="font-bold text-sm tracking-tight text-[#181412] leading-none group-hover:text-[#B94F3D] transition-colors">
+                {PROFILE_DATA.personal.shortName}
+              </span>
+              <span className="text-[10px] font-semibold tracking-wide uppercase text-[#B94F3D] mt-0.5 flex items-center gap-1">
+                <span className="w-1 h-1 rounded-full bg-[#E88771]" />
+                Síndica Municipal
+              </span>
             </div>
+          </a>
+
+          {/* Center Floating Capsule Navbar (Desktop) */}
+          <nav
+            className="hidden md:flex items-center gap-1 bg-[#FFFDFC]/85 backdrop-blur-xl border border-[#EADDD8] rounded-full p-1.5 shadow-card"
+            aria-label="Navegación principal"
+          >
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.id}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                    isActive
+                      ? "bg-[#181412] text-white shadow-sm"
+                      : "text-[#5E524E] hover:text-[#181412] hover:bg-[#FFE4DC]/60"
+                  }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute -top-1 right-2 w-1.5 h-1.5 rounded-full bg-[#E88771]" />
+                  )}
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Right Action: Contact Button */}
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              onClick={onOpenContact}
+              className="relative group overflow-hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wide bg-gradient-to-r from-[#B94F3D] via-[#E88771] to-[#B94F3D] bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white shadow-md hover:shadow-glow focus-visible:ring-2 focus-visible:ring-[#B94F3D]"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Contacto</span>
+              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </button>
+          </div>
+
+          {/* Mobile Hamburger */}
+          <div className="flex items-center md:hidden">
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2.5 rounded-xl bg-[#FFFDFC]/90 border border-[#EADDD8] text-[#181412] hover:bg-[#FFE4DC] focus-visible:ring-2 focus-visible:ring-[#B94F3D] transition-colors shadow-sm"
+              aria-expanded={mobileMenuOpen}
+              aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            >
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5" aria-hidden="true" />
+              ) : (
+                <Menu className="w-5 h-5" aria-hidden="true" />
+              )}
+            </button>
           </div>
         </div>
       </header>
@@ -163,7 +173,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 z-50 bg-[#181412]/40 backdrop-blur-sm md:hidden animate-fade-in"
+          className="fixed inset-0 z-50 bg-[#181412]/50 backdrop-blur-md md:hidden animate-fade-in"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
@@ -176,29 +186,29 @@ export function Navigation({ onOpenContact }: NavigationProps) {
             <div>
               <div className="flex items-center justify-between pb-6 border-b border-[#EADDD8]">
                 <div className="flex items-center gap-3">
-                  <span className="w-9 h-9 rounded-full bg-[#FFE4DC] border border-[#EADDD8] flex items-center justify-center font-serif text-base font-semibold text-[#B94F3D]">
+                  <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] flex items-center justify-center font-bold text-sm text-[#B94F3D]">
                     {PROFILE_DATA.personal.monogram}
                   </span>
                   <div className="flex flex-col">
-                    <span className="font-serif text-base font-bold text-[#181412]">
+                    <span className="font-bold text-sm text-[#181412]">
                       {PROFILE_DATA.personal.fullName}
                     </span>
-                    <span className="text-[10px] uppercase tracking-wider text-[#6B605C]">
-                      Villa de Allende
+                    <span className="text-[10px] uppercase tracking-wider text-[#B94F3D] font-semibold">
+                      Villa de Allende · 2025
                     </span>
                   </div>
                 </div>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-lg text-[#6B605C] hover:text-[#181412] hover:bg-[#FFE4DC]"
+                  className="p-2 rounded-lg text-[#5E524E] hover:text-[#181412] hover:bg-[#FFE4DC]"
                   aria-label="Cerrar menú"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <nav className="mt-8 flex flex-col gap-2" aria-label="Menú móvil">
+              <nav className="mt-6 flex flex-col gap-2" aria-label="Menú móvil">
                 {navLinks.map((link) => {
                   const isActive = activeSection === link.id;
                   return (
@@ -206,9 +216,9 @@ export function Navigation({ onOpenContact }: NavigationProps) {
                       key={link.id}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className={`px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                      className={`px-4 py-3 rounded-xl text-sm font-bold transition-all ${
                         isActive
-                          ? "bg-[#FFE4DC] text-[#B94F3D] font-semibold"
+                          ? "bg-[#181412] text-white shadow-sm"
                           : "text-[#181412] hover:bg-[#FFF6F2]"
                       }`}
                     >
@@ -226,12 +236,12 @@ export function Navigation({ onOpenContact }: NavigationProps) {
                   setMobileMenuOpen(false);
                   onOpenContact();
                 }}
-                className="w-full py-3 px-4 rounded-xl bg-[#B94F3D] text-white font-medium text-sm text-center flex items-center justify-center gap-2 shadow-sm"
+                className="w-full py-3.5 px-4 rounded-xl bg-[#B94F3D] text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md hover:bg-[#E88771] transition-colors"
               >
                 <span>Contacto profesional</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
-              <p className="text-xs text-center text-[#6B605C]">
+              <p className="text-[11px] text-center text-[#5E524E]">
                 {PROFILE_DATA.personal.location}
               </p>
             </div>

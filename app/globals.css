@@ -3,17 +3,19 @@
 @tailwind utilities;
 
 :root {
-  /* Design Tokens - Lizbeth Bernal Segundo */
+  /* Design Tokens - Lizbeth Bernal Segundo (Vibrant 2026 Edition) */
   --bg-main: #FFFDFC;
   --bg-alt: #FFF6F2;
   --salmon-50: #FFF6F2;
   --salmon-100: #FFE4DC;
   --salmon-200: #FCD5CA;
+  --salmon-300: #F9C0B3;
   --salmon-400: #F6B6A6;
   --salmon-500: #E88771;
+  --salmon-600: #D36D56;
   --salmon-700: #B94F3D;
   --text-main: #181412;
-  --text-secondary: #6B605C;
+  --text-secondary: #5E524E;
   --border-color: #EADDD8;
 }
 
@@ -40,14 +42,12 @@ html {
 }
 
 body {
-  font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-montserrat), system-ui, -apple-system, sans-serif;
   background-color: var(--bg-main);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  selection-background-color: var(--salmon-100);
-  selection-color: var(--salmon-700);
 }
 
 ::selection {
@@ -55,16 +55,93 @@ body {
   color: #B94F3D;
 }
 
+/* Subtle 2026 Background Dot Grid */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    radial-gradient(circle, rgba(232, 135, 113, 0.12) 1px, transparent 1px);
+}
+
+.bg-dot-matrix {
+  background-image: radial-gradient(rgba(24, 20, 18, 0.06) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* 2026 Glassmorphism Cards */
+.glass-card {
+  background: rgba(255, 253, 252, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(234, 221, 216, 0.85);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232, 135, 113, 0.6);
+  box-shadow: 0 16px 36px -8px rgba(232, 135, 113, 0.18), 0 4px 12px -2px rgba(24, 20, 18, 0.04);
+}
+
+/* Modern Gradient Text */
+.text-gradient-salmon {
+  background: linear-gradient(135deg, #181412 0%, #B94F3D 50%, #E88771 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-coral {
+  background: linear-gradient(135deg, #B94F3D 0%, #E88771 50%, #FB927C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glowing Aura Pill */
+.aura-pill {
+  position: relative;
+  background: linear-gradient(90deg, #FFE4DC, #FFF6F2);
+  border: 1px solid #EADDD8;
+}
+
+.aura-pill::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(232, 135, 113, 0.4), rgba(246, 182, 166, 0.2));
+  z-index: -1;
+  filter: blur(6px);
+  opacity: 0.7;
+}
+
 /* Accessible focus ring */
 :focus-visible {
   outline: 2px solid var(--salmon-700);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
-/* Subtle editorial scrollbar */
+/* Interactive Bento Grid Spotlight Card */
+.bento-card {
+  position: relative;
+  border-radius: 1.5rem;
+  background-color: #FFFDFC;
+  border: 1px solid #EADDD8;
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  border-color: #E88771;
+  box-shadow: 0 12px 32px -4px rgba(232, 135, 113, 0.15);
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -72,26 +149,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--salmon-200);
-  border-radius: 4px;
+  background: var(--salmon-300);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--salmon-400);
-}
-
-/* Utility classes for subtle entrance */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  background: var(--salmon-500);
 }

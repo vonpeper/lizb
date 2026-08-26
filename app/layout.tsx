@@ -1,20 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { PROFILE_DATA } from "@/data/profile";
 import { getProfilePageSchema } from "@/lib/structured-data";
 
-const cormorantGaramond = Cormorant_Garamond({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-manrope",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -85,14 +78,14 @@ export default function RootLayout({
   const jsonLd = getProfilePageSchema();
 
   return (
-    <html lang="es-MX" className={`${cormorantGaramond.variable} ${manrope.variable}`}>
+    <html lang="es-MX" className={`${montserrat.variable} font-sans`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#FFFDFC] text-[#181412] antialiased selection:bg-[#FFE4DC] selection:text-[#B94F3D]">
+      <body className="min-h-screen bg-[#FFFDFC] text-[#181412] font-sans antialiased selection:bg-[#FFE4DC] selection:text-[#B94F3D]">
         {children}
       </body>
     </html>
