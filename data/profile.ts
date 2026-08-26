@@ -183,17 +183,52 @@ export const PROFILE_DATA: ProfileData = {
       },
     ],
   },
-  expertise: {
-    id: "exp-1",
-    title: "Representación Jurídica Municipal",
-    tag: "Art. 52 Ley Orgánica",
-    summary: "Mandato legal y defensa en controversias y juicios.",
-    points: [
-      "Representación del Ayuntamiento ante tribunales",
-      "Revisión de contratos y convenios oficiales",
-      "Emisión de dictámenes y acuerdos de Cabildo",
-    ],
-  },
+  expertise: [
+    {
+      id: "exp-1",
+      title: "Representación Jurídica Municipal",
+      tag: "Art. 52 Ley Orgánica",
+      summary: "Mandato legal y defensa en controversias y juicios.",
+      points: [
+        "Representación del Ayuntamiento ante tribunales",
+        "Revisión de contratos y convenios oficiales",
+        "Emisión de dictámenes y acuerdos de Cabildo",
+      ],
+    },
+    {
+      id: "exp-2",
+      title: "Protección y Registro del Patrimonio",
+      tag: "Certeza Jurídica",
+      summary: "Custodia e inscripción de bienes muebles e inmuebles.",
+      points: [
+        "Actualización del inventario general de bienes",
+        "Trámites de escrituración y registro RPPyC",
+        "Inspección física y delimitación de predios públicos",
+      ],
+    },
+    {
+      id: "exp-3",
+      title: "Vigilancia de la Hacienda Pública",
+      tag: "Control Financiero",
+      summary: "Supervisión de cortes de caja y presupuestos.",
+      points: [
+        "Revisión mensual de ingresos y egresos de Tesorería",
+        "Fiscalización de cuentas públicas municipales",
+        "Supervisión de contratos de obra y adquisiciones",
+      ],
+    },
+    {
+      id: "exp-4",
+      title: "Técnica Procesal y Litigio",
+      tag: "Práctica Forense",
+      summary: "Experiencia en salas judiciales y tribunales de Toluca.",
+      points: [
+        "Elaboración de demandas y recursos de amparo",
+        "Estrategias procesales en materia civil y mercantil",
+        "Convenios de transacción y mediación",
+      ],
+    },
+  ],
   timeline: [
     {
       id: "exp-2025",
