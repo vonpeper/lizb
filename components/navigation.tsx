@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { PROFILE_DATA } from "@/data/profile";
 import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
@@ -16,8 +17,8 @@ export function Navigation({ onOpenContact }: NavigationProps) {
   const navLinks = [
     { href: "#inicio", label: "Inicio", id: "inicio" },
     { href: "#perfil", label: "Perfil", id: "perfil" },
-    { href: "#areas", label: "Áreas", id: "areas" },
     { href: "#experiencia", label: "Trayectoria", id: "experiencia" },
+    { href: "#actividades", label: "Actividades", id: "actividades" },
     { href: "#formacion", label: "Formación", id: "formacion" },
     { href: "#principios", label: "Principios", id: "principios" },
   ];
@@ -26,7 +27,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ["inicio", "perfil", "areas", "experiencia", "formacion", "principios", "contacto"];
+      const sections = ["inicio", "perfil", "experiencia", "actividades", "formacion", "principios", "contacto"];
       const scrollPosition = window.scrollY + 220;
 
       for (const sectionId of sections) {
@@ -86,21 +87,24 @@ export function Navigation({ onOpenContact }: NavigationProps) {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
-          {/* Brand Logo & Status */}
+          {/* Brand Logo with Client Avatar & Live Beacon */}
           <a
             href="#inicio"
             onClick={(e) => handleNavClick(e, "#inicio")}
-            className="group flex items-center gap-3 p-1.5 rounded-2xl bg-[#FFFDFC]/85 backdrop-blur-md border border-[#EADDD8] hover:border-[#E88771] transition-all duration-200 shadow-sm"
+            className="group flex items-center gap-3 p-1.5 rounded-full bg-[#FFFDFC]/90 backdrop-blur-md border border-[#EADDD8] hover:border-[#E88771] transition-all duration-200 shadow-sm"
             aria-label="Lizbeth Bernal Segundo - Inicio"
           >
-            <div className="relative">
-              <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] flex items-center justify-center font-extrabold text-sm text-[#B94F3D] shadow-sm group-hover:scale-105 transition-transform">
-                {PROFILE_DATA.personal.monogram}
-              </span>
+            <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-[#E88771] shadow-sm shrink-0">
+              <Image
+                src={PROFILE_DATA.personal.avatarPath}
+                alt="Lizbeth Bernal Segundo"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform"
+              />
               <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-[#FFFDFC] animate-pulse" />
             </div>
 
-            <div className="flex flex-col pr-2">
+            <div className="flex flex-col pr-3">
               <span className="font-extrabold text-sm tracking-tight text-[#181412] leading-none group-hover:text-[#B94F3D] transition-colors">
                 {PROFILE_DATA.personal.shortName}
               </span>
@@ -111,9 +115,9 @@ export function Navigation({ onOpenContact }: NavigationProps) {
             </div>
           </a>
 
-          {/* Center Floating Capsule Navbar (Desktop) */}
+          {/* Center Floating Capsule Navbar */}
           <nav
-            className="hidden md:flex items-center gap-1 bg-[#FFFDFC]/85 backdrop-blur-xl border border-[#EADDD8] rounded-full p-1.5 shadow-card"
+            className="hidden md:flex items-center gap-1 bg-[#FFFDFC]/90 backdrop-blur-xl border border-[#EADDD8] rounded-full p-1.5 shadow-card"
             aria-label="Navegación principal"
           >
             {navLinks.map((link) => {
@@ -141,7 +145,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
             <button
               type="button"
               onClick={onOpenContact}
-              className="relative group overflow-hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-extrabold tracking-wide bg-gradient-to-r from-[#B94F3D] via-[#E88771] to-[#B94F3D] bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white shadow-md hover:shadow-glow focus-visible:ring-2 focus-visible:ring-[#B94F3D]"
+              className="relative group overflow-hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-extrabold tracking-wide bg-gradient-to-r from-[#B94F3D] via-[#E88771] to-[#B94F3D] bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white shadow-md hover:shadow-glow focus-visible:ring-2 focus-visible:ring-[#B94F3D] cursor-pointer"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Contacto</span>
@@ -154,7 +158,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl bg-[#FFFDFC]/90 border border-[#EADDD8] text-[#181412] hover:bg-[#FFE4DC] focus-visible:ring-2 focus-visible:ring-[#B94F3D] transition-colors shadow-sm"
+              className="p-2.5 rounded-2xl bg-[#FFFDFC]/90 border border-[#EADDD8] text-[#181412] hover:bg-[#FFE4DC] focus-visible:ring-2 focus-visible:ring-[#B94F3D] transition-colors shadow-sm"
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
@@ -184,9 +188,14 @@ export function Navigation({ onOpenContact }: NavigationProps) {
             <div>
               <div className="flex items-center justify-between pb-6 border-b border-[#EADDD8]">
                 <div className="flex items-center gap-3">
-                  <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFE4DC] to-[#F6B6A6] flex items-center justify-center font-extrabold text-sm text-[#B94F3D]">
-                    {PROFILE_DATA.personal.monogram}
-                  </span>
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#E88771] shadow-sm shrink-0">
+                    <Image
+                      src={PROFILE_DATA.personal.avatarPath}
+                      alt="Lizbeth Bernal"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="flex flex-col">
                     <span className="font-extrabold text-sm text-[#181412]">
                       {PROFILE_DATA.personal.fullName}
@@ -214,7 +223,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
                       key={link.id}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className={`px-4 py-3 rounded-xl text-sm font-extrabold transition-all ${
+                      className={`px-4 py-3 rounded-2xl text-sm font-extrabold transition-all ${
                         isActive
                           ? "bg-[#181412] text-white shadow-sm"
                           : "text-[#181412] hover:bg-[#FFF6F2]"
@@ -234,7 +243,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
                   setMobileMenuOpen(false);
                   onOpenContact();
                 }}
-                className="w-full py-3.5 px-4 rounded-xl bg-[#B94F3D] text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md"
+                className="w-full py-3.5 px-4 rounded-2xl bg-[#B94F3D] text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md"
               >
                 <span>Contacto profesional</span>
                 <ArrowUpRight className="w-4 h-4" />

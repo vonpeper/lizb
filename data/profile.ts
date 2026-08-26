@@ -1,248 +1,257 @@
-export interface TimelineItem {
-  id: string;
-  role: string;
-  institution: string;
-  location: string;
-  period: string;
-  current?: boolean;
-  category: "public" | "private";
-  tag: string;
-  highlights: string[];
+export interface ProfileData {
+  personal: {
+    fullName: string;
+    shortName: string;
+    monogram: string;
+    currentRole: string;
+    profession: string;
+    location: string;
+    portraitPath: string;
+    avatarPath: string;
+    portraitAlt: string;
+  };
+  site: {
+    title: string;
+    description: string;
+    domain: string;
+    url: string;
+    keywords: string[];
+  };
+  hero: {
+    badge: string;
+    headingMain: string;
+    headingAccent: string;
+    punchline: string;
+    subtext: string;
+    stats: {
+      value: string;
+      label: string;
+      sub: string;
+    }[];
+  };
+  profileBento: {
+    title: string;
+    subtitle: string;
+    modes: {
+      id: string;
+      label: string;
+      badge: string;
+      headline: string;
+      bullets: string[];
+    }[];
+  };
+  expertise: {
+    id: string;
+    title: string;
+    tag: string;
+    summary: string;
+    points: string[];
+  }[];
+  timeline: {
+    id: string;
+    period: string;
+    role: string;
+    institution: string;
+    location: string;
+    category: "public" | "private";
+    tag: string;
+    current?: boolean;
+    highlights: string[];
+  }[];
+  education: {
+    id: string;
+    degree: string;
+    institution: string;
+    campus?: string;
+    period: string;
+    status: "in_progress" | "completed";
+    statusLabel: string;
+    highlights: string[];
+  }[];
+  activities: {
+    id: string;
+    title: string;
+    category: "cabildo" | "patrimonio" | "academico";
+    categoryLabel: string;
+    date: string;
+    image: string;
+    summary: string;
+    tags: string[];
+  }[];
+  statement: {
+    badge: string;
+    punchline: string;
+    tags: string[];
+  };
+  principles: {
+    id: string;
+    title: string;
+    tagline: string;
+    description: string;
+  }[];
+  cta: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    buttonText: string;
+  };
+  contact: {
+    email: string;
+    institutionalLocation: string;
+    officeHours: string;
+    modalTitle: string;
+    modalDescription: string;
+  };
 }
 
-export interface EducationItem {
-  id: string;
-  degree: string;
-  institution: string;
-  campus?: string;
-  period: string;
-  status: "in_progress" | "completed";
-  statusLabel: string;
-  tag: string;
-  highlights: string[];
-}
-
-export interface ExpertiseItem {
-  id: string;
-  number: string;
-  title: string;
-  tag: string;
-  summary: string;
-  points: string[];
-}
-
-export interface PrincipleItem {
-  id: string;
-  title: string;
-  tagline: string;
-  iconName: string;
-  description: string;
-}
-
-export const PROFILE_DATA = {
+export const PROFILE_DATA: ProfileData = {
   personal: {
     fullName: "Lizbeth Bernal Segundo",
     shortName: "Lizbeth Bernal",
     monogram: "LB",
-    profession: "Abogada & Servidora Pública",
-    location: "Villa de Allende, Edo. Méx.",
     currentRole: "Síndica Municipal",
-    currentEducation: "Maestría en Admón. Pública (UVM)",
-    portraitPath: "/images/lizbeth-bernal-retrato.webp",
-    portraitAlt: "Lizbeth Bernal Segundo, abogada y servidora pública de Villa de Allende",
+    profession: "Licenciada en Derecho",
+    location: "Villa de Allende, Estado de México",
+    portraitPath: "/images/lizbeth-bernal-retrato.jpg",
+    avatarPath: "/images/lizbeth-bernal-avatar.png",
+    portraitAlt: "Retrato profesional de Lizbeth Bernal Segundo, Abogada y Síndica Municipal",
   },
-  
   site: {
+    title: "Lizbeth Bernal Segundo | Abogada & Síndica Municipal",
+    description:
+      "Sitio profesional de Lizbeth Bernal Segundo. Abogada y Síndica Municipal en Villa de Allende, Estado de México (2025–Presente). Maestría en Administración Pública en curso (UVM).",
     domain: "lizbernal.mx",
     url: "https://lizbernal.mx",
-    locale: "es-MX",
-    title: "Lizbeth Bernal Segundo | Abogada y Síndica Municipal",
-    description: "Perfil profesional de Lizbeth Bernal Segundo, abogada y servidora pública con experiencia en representación jurídica municipal, litigio y administración pública en el Estado de México.",
     keywords: [
       "Lizbeth Bernal Segundo",
       "Lizbeth Bernal",
-      "Abogada",
-      "Síndica Municipal de Villa de Allende",
-      "Administración Pública",
-      "Representación Jurídica",
-      "Estado de México",
+      "Abogada Estado de México",
+      "Síndica Municipal Villa de Allende",
+      "Administración Pública UVM",
+      "Derecho Municipal Toluca",
     ],
-    disclaimer: "Sitio personal de carácter profesional e informativo. No constituye propaganda electoral ni solicita apoyo o voto.",
   },
-
-  contact: {
-    email: "contacto@lizbernal.mx",
-    isEmailPending: true,
-    emailPendingNote: "Buzón institucional en proceso de habilitación técnica.",
-    locationText: "Villa de Allende, Estado de México",
-  },
-
   hero: {
-    badge: "ABOGADA · ADMINISTRACIÓN PÚBLICA · SINDICATURA",
-    headingMain: "Lizbeth Bernal",
-    headingAccent: "Segundo",
-    punchline: "Derecho, rigor técnico y vocación al servicio municipal.",
-    subtext: "Especialista en litigio privado, control presupuestal y defensa del patrimonio público en el Estado de México.",
+    badge: "Síndica Municipal 2025 · Villa de Allende",
+    headingMain: "Lizbeth",
+    headingAccent: "Bernal",
+    punchline: "Abogada & Servidora Pública",
+    subtext:
+      "Representación legal institucional, defensa del patrimonio municipal y práctica jurídica con rigor normativo en el Estado de México.",
     stats: [
-      { value: "2025", label: "Sindicatura Activa", sub: "Villa de Allende" },
-      { value: "UVM", label: "Maestría en Curso", sub: "Campus Metepec" },
-      { value: "3+ Años", label: "Práctica Jurídica", sub: "Litigio y Tribunales" },
+      { value: "2025", label: "Sindicatura Municipal", sub: "Villa de Allende" },
+      { value: "UVM", label: "Maestría en Admón. Pública", sub: "Campus Metepec" },
+      { value: "ISIMA", label: "Licenciatura en Derecho", sub: "Toluca" },
     ],
   },
-
   profileBento: {
-    title: "Perfil y Especialidad",
-    subtitle: "Rigor jurídico aplicado al control y patrimonio municipal",
+    title: "Perfil Jurídico & Municipal",
+    subtitle: "Sinergia técnica entre el litigio en tribunales y el servicio público en Villa de Allende.",
     modes: [
       {
         id: "sindicatura",
         label: "🏛️ Sindicatura Municipal",
-        badge: "2025 – Presente",
-        headline: "Defensa jurídica y salvaguarda del patrimonio público",
+        badge: "Villa de Allende · 2025",
+        headline: "Defensa jurídica y fiscalización institucional",
         bullets: [
-          "Representación legal y defensa formal del Ayuntamiento en Cabildo.",
-          "Supervisión del presupuesto de egresos, finanzas y Tesorería.",
-          "Regularización e inscripción de inmuebles ante el Registro Público (RPPyC).",
+          "Representación legal del H. Ayuntamiento en controversias",
+          "Revisión y vigilancia de cortes de caja y hacienda pública",
+          "Actualización del inventario de bienes muebles e inmuebles",
         ],
       },
       {
         id: "litigio",
-        label: "⚖️ Litigio Privado",
-        badge: "2019 – 2024",
-        headline: "Experiencia procesal en juzgados y tribunales de Toluca",
+        label: "⚖️ Práctica Procesal",
+        badge: "Toluca · 2019–2024",
+        headline: "Experiencia en juzgados civiles, mercantiles y amparo",
         bullets: [
-          "Elaboración de demandas, recursos legales y juicios de amparo.",
-          "Comparecencia a audiencias jurisdiccionales y diligencias en fiscalías.",
-          "Mediación, redacción de convenios y acuerdos en conciliación.",
+          "Redacción de demandas y seguimiento en salas judiciales",
+          "Estrategias de amparo y control de legalidad",
+          "Conciliación de convenios y asesoría jurídica integral",
         ],
       },
       {
-        id: "academico",
-        label: "🎓 Especialización Dual",
-        badge: "Derecho + Gobierno",
-        headline: "Técnica legal complementada con administración pública",
+        id: "formacion",
+        label: "🎓 Gestión Pública",
+        badge: "UVM Metepec",
+        headline: "Preparación continua en finanzas y gobernanza",
         bullets: [
-          "Licenciatura en Derecho por ISIMA Universidad Toluca (2019–2022).",
-          "Maestría en Administración Pública en UVM Metepec (En curso 2025).",
-          "Enfoque en toma de decisiones estratégicas y gestión gubernamental.",
+          "Especialización en administración pública y presupuesto",
+          "Herramientas modernas de evaluación del gasto",
+          "Visión contemporánea de políticas públicas locales",
         ],
       },
     ],
   },
-
-  expertise: [
-    {
-      id: "exp-1",
-      number: "01",
-      title: "Representación Jurídica",
-      tag: "Sindicatura",
-      summary: "Defensa procesal e institucional de los derechos e intereses del Ayuntamiento.",
-      points: [
-        "Defensa legal del municipio en procedimientos contenciosos.",
-        "Representación formal del H. Ayuntamiento.",
-        "Apego al marco normativo del Estado de México.",
-      ],
-    },
-    {
-      id: "exp-2",
-      number: "02",
-      title: "Control Presupuestal",
-      tag: "Finanzas Públicas",
-      summary: "Revisión técnica de egresos, balances y supervisión de Tesorería.",
-      points: [
-        "Seguimiento y vigilancia del presupuesto de egresos.",
-        "Revisión de informes contables y cortes de caja.",
-        "Verificación formal de firmas de Tesorería Municipal.",
-      ],
-    },
-    {
-      id: "exp-3",
-      number: "03",
-      title: "Patrimonio Municipal",
-      tag: "Bienes Públicos",
-      summary: "Formulación de inventarios y regularización de bienes inmuebles.",
-      points: [
-        "Actualización de inventarios de bienes del municipio.",
-        "Regularización de títulos y propiedades municipales.",
-        "Inscripción ante el Registro Público de la Propiedad (RPPyC).",
-      ],
-    },
-    {
-      id: "exp-4",
-      number: "04",
-      title: "Litigio & Amparo",
-      tag: "Práctica Procesal",
-      summary: "Redacción de demandas, amparos, convenios y desahogo de audiencias.",
-      points: [
-        "Elaboración de demandas, recursos procesales y amparos.",
-        "Comparecencias ante fiscalías y juzgados civiles.",
-        "Mediación y formalización de convenios legales.",
-      ],
-    },
-  ] as ExpertiseItem[],
-
+  expertise: {
+    id: "exp-1",
+    title: "Representación Jurídica Municipal",
+    tag: "Art. 52 Ley Orgánica",
+    summary: "Mandato legal y defensa en controversias y juicios.",
+    points: [
+      "Representación del Ayuntamiento ante tribunales",
+      "Revisión de contratos y convenios oficiales",
+      "Emisión de dictámenes y acuerdos de Cabildo",
+    ],
+  },
   timeline: [
     {
-      id: "t-1",
+      id: "exp-2025",
+      period: "2025 – Presente",
       role: "Síndica Municipal",
       institution: "H. Ayuntamiento de Villa de Allende",
       location: "Villa de Allende, Edo. Méx.",
-      period: "2025 – Actualidad",
-      current: true,
       category: "public",
       tag: "Servicio Público",
+      current: true,
       highlights: [
-        "Representación legal del Ayuntamiento y sesiones de Cabildo.",
-        "Supervisión del presupuesto de egresos y cortes de caja de Tesorería.",
-        "Inventarios e inscripción de bienes municipales en el Registro Público.",
+        "Defensa legal del Ayuntamiento",
+        "Control del inventario patrimonial",
+        "Vigilancia de la Hacienda Municipal",
       ],
     },
     {
-      id: "t-2",
-      role: "Abogada Junior",
+      id: "exp-2022",
+      period: "2022 – 2024",
+      role: "Abogada Postulante",
       institution: "Jurídico Montes de Oca y Asociados",
       location: "Toluca, Edo. Méx.",
-      period: "2022 – 2024",
-      current: false,
       category: "private",
       tag: "Litigio Privado",
       highlights: [
-        "Redacción de demandas y seguimiento a juicios de amparo.",
-        "Comparecencia a juicios y desahogo de audiencias procesales.",
-        "Negociación y elaboración de convenios conciliatorios.",
+        "Juicios civiles y mercantiles",
+        "Juicios de amparo indirecto",
+        "Convenios y mediación extrajudicial",
       ],
     },
     {
-      id: "t-3",
-      role: "Abogada Junior",
+      id: "exp-2019",
+      period: "2019 – 2022",
+      role: "Asistente Jurídico",
       institution: "Galeana & Asociados",
       location: "Toluca, Edo. Méx.",
-      period: "2019 – 2022",
-      current: false,
       category: "private",
-      tag: "Práctica Jurídica",
+      tag: "Formación Procesal",
       highlights: [
-        "Redacción de demandas, promociones y escritos legales.",
-        "Comparecencias ante fiscalías y gestión de trámites administrativos.",
-        "Atención al público y asesoría legal personalizada.",
+        "Integración de expedientes en juzgados",
+        "Elaboración de proyectos de demanda",
+        "Diligencias y seguimiento procesal",
       ],
     },
-  ] as TimelineItem[],
-
+  ],
   education: [
     {
       id: "edu-1",
       degree: "Maestría en Administración Pública",
       institution: "Universidad del Valle de México (UVM)",
       campus: "Campus Metepec",
-      period: "2025 – En curso",
+      period: "Enero 2025 – Presente",
       status: "in_progress",
       statusLabel: "En curso",
-      tag: "Posgrado",
       highlights: [
-        "Planeación estratégica gubernamental y políticas públicas.",
-        "Finanzas públicas, auditoría y control institucional.",
-        "Gestión directiva en administraciones municipales.",
+        "Finanzas públicas y presupuesto basado en resultados",
+        "Planeación estratégica institucional",
+        "Políticas públicas y modernización de la gestión local",
       ],
     },
     {
@@ -252,50 +261,82 @@ export const PROFILE_DATA = {
       campus: "Toluca, Estado de México",
       period: "2019 – 2022",
       status: "completed",
-      statusLabel: "Concluida",
-      tag: "Licenciatura",
+      statusLabel: "Concluida con Título",
       highlights: [
-        "Formación integral en ciencias jurídicas y derecho procesal.",
-        "Técnica de litigio civil, mercantil y amparo constitucional.",
-        "Derecho administrativo y marco normativo mexiquense.",
+        "Derecho Constitucional, Administrativo y Civil",
+        "Técnica procesal y argumentación jurídica",
+        "Práctica forense en juzgados y tribunales de Toluca",
       ],
     },
-  ] as EducationItem[],
-
+  ],
+  activities: [
+    {
+      id: "act-1",
+      title: "Instalación y Primera Sesión Ordinaria de Cabildo",
+      category: "cabildo",
+      categoryLabel: "Cabildo & Sindicatura",
+      date: "2025 · Villa de Allende",
+      image: "/images/activity-cabildo.jpg",
+      summary: "Toma de protesta y análisis de los primeros acuerdos de gobernanza y legalidad para el periodo municipal en Villa de Allende.",
+      tags: ["Cabildo", "Marco Normativo", "Villa de Allende"],
+    },
+    {
+      id: "act-2",
+      title: "Programa de Regularización y Certeza Patrimonial",
+      category: "patrimonio",
+      categoryLabel: "Patrimonio Municipal",
+      date: "2025 · Villa de Allende",
+      image: "/images/villa-allende-town.jpg",
+      summary: "Revisión técnica de escrituración e inscripción de bienes de dominio público en el Registro Público de la Propiedad.",
+      tags: ["Patrimonio", "RPPyC", "Bienes Públicos"],
+    },
+    {
+      id: "act-3",
+      title: "Seminario de Finanzas y Control Presupuestario Local",
+      category: "academico",
+      categoryLabel: "Gestión Pública UVM",
+      date: "2025 · UVM Metepec",
+      image: "/images/villa-allende-scenic.jpg",
+      summary: "Actualización técnica en fiscalización de la Hacienda Municipal y modernización del gasto público local.",
+      tags: ["UVM Metepec", "Hacienda Pública", "Transparencia"],
+    },
+  ],
   statement: {
-    badge: "VALORES RECTORES",
-    punchline: "El ejercicio del Derecho es una herramienta de servicio y certeza pública.",
-    tags: ["LEGALIDAD", "RESPONSABILIDAD", "COMUNIDAD"],
+    badge: "Vocación & Compromiso",
+    punchline: "Servir con legalidad, proteger el patrimonio común y dignificar la función pública.",
+    tags: ["Transparencia", "Rigor Jurídico", "Villa de Allende", "Edo. de México"],
   },
-
   principles: [
     {
       id: "prin-1",
-      title: "Legalidad",
-      tagline: "Apego estricto a la norma",
-      iconName: "scale",
-      description: "Actuación fundada en el marco jurídico vigente para garantizar certeza y debido proceso institucional.",
+      title: "Legalidad Estricta",
+      tagline: "Apego al marco normativo",
+      description: "Cada acto de autoridad municipal fundamentado en las leyes y reglamentos del Estado de México.",
     },
     {
       id: "prin-2",
-      title: "Responsabilidad",
-      tagline: "Protección patrimonial y fiscal",
-      iconName: "shield",
-      description: "Supervisión rigurosa del presupuesto de egresos y cuidado formal de los bienes del municipio.",
+      title: "Certeza y Custodia",
+      tagline: "Protección del patrimonio",
+      description: "Defensa activa de los bienes y recursos que pertenecen a la comunidad de Villa de Allende.",
     },
     {
       id: "prin-3",
-      title: "Servicio a la Comunidad",
-      tagline: "Compromiso de cercanía",
-      iconName: "heart",
-      description: "Práctica jurídica con sentido ético y vocación social para proteger los intereses colectivos.",
+      title: "Servicio Cercano",
+      tagline: "Atención con responsabilidad",
+      description: "Escucha activa y resolución con base en el derecho y el interés público de la ciudadanía.",
     },
-  ] as PrincipleItem[],
-
+  ],
   cta: {
-    badge: "CONEXIÓN DIRECTA",
-    title: "¿Tienes un asunto o consulta profesional?",
-    subtitle: "Canal de correspondencia para temas jurídicos e institucionales.",
-    buttonText: "Enviar mensaje",
+    badge: "Comunicación Directa",
+    title: "Contacto Profesional",
+    subtitle: "Canal oficial para correspondencia jurídica, asuntos institucionales de la Sindicatura y vinculación profesional.",
+    buttonText: "Enviar Mensaje",
+  },
+  contact: {
+    email: "contacto@lizbernal.mx",
+    institutionalLocation: "Palacio Municipal, Villa de Allende, Estado de México",
+    officeHours: "Lunes a Viernes · 9:00 a 18:00 hrs",
+    modalTitle: "Contacto Profesional e Institucional",
+    modalDescription: "Escribe tu consulta para vinculación profesional o correspondencia institucional.",
   },
 };

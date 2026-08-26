@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { PROFILE_DATA } from "@/data/profile";
-import { GraduationCap, Scale, Landmark, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { GraduationCap, Scale, Landmark, Sparkles, CheckCircle2 } from "lucide-react";
 
 export function Profile() {
   const [selectedMode, setSelectedMode] = useState<number>(0);
@@ -12,7 +12,7 @@ export function Profile() {
   return (
     <section
       id="perfil"
-      className="py-20 lg:py-28 bg-[#FFF6F2] border-y border-[#EADDD8] relative overflow-hidden"
+      className="py-20 lg:py-28 bg-[#FFF6F2] border-y border-[#EADDD8] relative overflow-hidden bg-dot-matrix"
       aria-label="Perfil profesional y visión jurídica"
     >
       {/* Ambient background glows */}
@@ -35,21 +35,21 @@ export function Profile() {
           </p>
         </div>
 
-        {/* Bento Grid Architecture with Background Images & Gradient Blends */}
+        {/* Bento Grid with Authentic Villa de Allende Scenery & Gradient Overlays */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           
           {/* Bento 1: Large Interactive Card with Dynamic Tab Content (Span 8) */}
           <div className="md:col-span-12 lg:col-span-8 relative p-6 sm:p-8 rounded-3xl bg-[#FFFDFC] border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group">
             
-            {/* Subtle blurred corner image */}
-            <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none overflow-hidden hidden sm:block">
+            {/* Subtle landscape silhouette */}
+            <div className="absolute top-0 right-0 w-2/3 h-full opacity-15 pointer-events-none overflow-hidden hidden sm:block">
               <Image
-                src="/images/bento-sindicatura.jpg"
-                alt="Arquitectura institucional"
+                src="/images/villa-allende-scenic.jpg"
+                alt="Paisaje de Villa de Allende"
                 fill
                 className="object-cover object-right"
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#FFFDFC]/80 to-[#FFFDFC]" />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#FFFDFC]/90 to-[#FFFDFC]" />
             </div>
 
             <div className="relative z-10">
@@ -60,7 +60,7 @@ export function Profile() {
                     key={mode.id}
                     type="button"
                     onClick={() => setSelectedMode(idx)}
-                    className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
+                    className={`px-4 py-2 rounded-2xl text-xs font-extrabold transition-all cursor-pointer ${
                       selectedMode === idx
                         ? "bg-[#181412] text-white shadow-sm scale-[1.02]"
                         : "bg-[#FFF6F2] text-[#5E524E] hover:bg-[#FFE4DC] hover:text-[#181412]"
@@ -89,7 +89,7 @@ export function Profile() {
                   {currentMode.bullets.map((bullet, bIdx) => (
                     <div
                       key={bIdx}
-                      className="p-3 rounded-2xl bg-[#FFF6F2]/90 backdrop-blur-sm border border-[#EADDD8] flex items-start gap-3 text-xs sm:text-sm font-medium text-[#181412]"
+                      className="p-3 rounded-2xl bg-[#FFF6F2]/90 backdrop-blur-sm border border-[#EADDD8] flex items-start gap-3 text-xs sm:text-sm font-semibold text-[#181412]"
                     >
                       <CheckCircle2 className="w-5 h-5 text-[#B94F3D] mt-0.5 shrink-0" />
                       <span>{bullet}</span>
@@ -105,20 +105,20 @@ export function Profile() {
             </div>
           </div>
 
-          {/* Bento 2: Sindicatura Municipal Card with Blended Background Image (Span 4) */}
+          {/* Bento 2: Sindicatura Municipal Card with Villa de Allende Plaza Image (Span 4) */}
           <div className="md:col-span-12 lg:col-span-4 relative p-6 sm:p-8 rounded-3xl text-white flex flex-col justify-between shadow-floating overflow-hidden group min-h-[320px]">
-            {/* Background Image with Dark Gradient Blend */}
+            {/* Background Image: Villa de Allende Plaza & Palacio Municipal */}
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/bento-sindicatura.jpg"
-                alt="Sindicatura Municipal"
+                src="/images/villa-allende-town.jpg"
+                alt="Palacio Municipal y Plaza de Villa de Allende"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#181412] via-[#181412]/85 to-[#181412]/40" />
             </div>
 
-            {/* Content on top */}
+            {/* Content */}
             <div className="relative z-10 space-y-4">
               <div className="flex items-center justify-between">
                 <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-[#F6B6A6] shadow-sm">
@@ -164,13 +164,13 @@ export function Profile() {
             </div>
           </div>
 
-          {/* Bento 3: Formación Posgrado with Blended Background Image (Span 6) */}
-          <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[300px]">
-            {/* Background Image with Warm Gradient Blend */}
+          {/* Bento 3: Formación Posgrado with Scenic Mountain Backdrop (Span 6) */}
+          <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[290px]">
+            {/* Background Scenic Landscape with Soft Gradient */}
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/bento-posgrado.jpg"
-                alt="Maestría en Administración Pública"
+                src="/images/villa-allende-scenic.jpg"
+                alt="Gestión y Posgrado en Edo. de México"
                 fill
                 className="object-cover opacity-20 group-hover:scale-105 group-hover:opacity-30 transition-all duration-700"
               />
@@ -207,15 +207,15 @@ export function Profile() {
             </div>
           </div>
 
-          {/* Bento 4: Licenciatura y Litigio with Blended Background Image (Span 6) */}
-          <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[300px]">
-            {/* Background Image with Warm Gradient Blend */}
+          {/* Bento 4: Licenciatura en Derecho (Span 6) */}
+          <div className="md:col-span-6 relative p-6 sm:p-8 rounded-3xl border border-[#EADDD8] hover:border-[#E88771] transition-all duration-300 shadow-card flex flex-col justify-between overflow-hidden group min-h-[290px]">
+            {/* Background Image with Warm Gradient */}
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/bento-litigio.jpg"
-                alt="Litigio y Tribunales"
+                src="/images/villa-allende-town.jpg"
+                alt="Formación Jurídica y Litigio"
                 fill
-                className="object-cover opacity-20 group-hover:scale-105 group-hover:opacity-30 transition-all duration-700"
+                className="object-cover opacity-15 group-hover:scale-105 group-hover:opacity-25 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/90 to-[#FFFDFC]/60" />
             </div>
@@ -240,7 +240,7 @@ export function Profile() {
               </div>
 
               <p className="text-xs sm:text-sm text-[#5E524E] leading-relaxed font-medium">
-                Formación procesal, técnica de demandas, amparos, convenios y litigio en despachos privados de Toluca.
+                Formación procesal, técnica de demandas, amparos, convenios y práctica judicial en el Estado de México.
               </p>
             </div>
 
