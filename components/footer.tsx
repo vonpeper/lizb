@@ -47,7 +47,6 @@ export function Footer() {
             <a href="#perfil" className="text-[#EADDD8] hover:text-white transition-colors">Perfil</a>
             <a href="#areas" className="text-[#EADDD8] hover:text-white transition-colors">Áreas</a>
             <a href="#experiencia" className="text-[#EADDD8] hover:text-white transition-colors">Trayectoria</a>
-            <a href="#actividades" className="text-[#EADDD8] hover:text-white transition-colors">Actividades</a>
             <a href="#formacion" className="text-[#EADDD8] hover:text-white transition-colors">Formación</a>
             <a href="#principios" className="text-[#EADDD8] hover:text-white transition-colors">Principios</a>
             <a href="#contacto" className="text-[#F6B6A6] hover:text-white transition-colors">Contacto</a>

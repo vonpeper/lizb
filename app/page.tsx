@@ -6,7 +6,6 @@ import { Hero } from "@/components/hero";
 import { Profile } from "@/components/profile";
 import { Expertise } from "@/components/expertise";
 import { Timeline } from "@/components/timeline";
-import { Activities } from "@/components/activities";
 import { Education } from "@/components/education";
 import { ParallaxStatement } from "@/components/parallax-statement";
 import { Principles } from "@/components/principles";
@@ -39,7 +38,8 @@ export default function Home() {
         <Profile />
         <Expertise />
         <Timeline />
-        <Activities />
+        {/* Actividades/Noticias ocultas temporalmente por solicitud */}
+        {/* <Activities /> */}
         <Education />
         <ParallaxStatement />
         <Principles />

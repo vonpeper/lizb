@@ -18,7 +18,6 @@ export function Navigation({ onOpenContact }: NavigationProps) {
     { href: "#inicio", label: "Inicio", id: "inicio" },
     { href: "#perfil", label: "Perfil", id: "perfil" },
     { href: "#experiencia", label: "Trayectoria", id: "experiencia" },
-    { href: "#actividades", label: "Actividades", id: "actividades" },
     { href: "#formacion", label: "Formación", id: "formacion" },
     { href: "#principios", label: "Principios", id: "principios" },
   ];
@@ -27,7 +26,7 @@ export function Navigation({ onOpenContact }: NavigationProps) {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ["inicio", "perfil", "experiencia", "actividades", "formacion", "principios", "contacto"];
+      const sections = ["inicio", "perfil", "experiencia", "formacion", "principios", "contacto"];
       const scrollPosition = window.scrollY + 220;
 
       for (const sectionId of sections) {
