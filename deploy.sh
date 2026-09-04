@@ -39,6 +39,11 @@ ssh -i "$SSH_KEY" -p "$VPS_PORT" "$VPS_USER@$VPS_HOST" 'bash -s' << 'EOF'
   echo "BvJhdx2S77NOv3Oqx62UwsX/" | sudo -S podman run -d --name lizbernal \
     --network prosuite \
     --restart always \
+    --cpus 2 \
+    --memory 1g \
+    --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m \
+    --cap-drop=ALL \
+    --security-opt=no-new-privileges:true \
     --label "org.prosuite.stack=lizbernal" \
     --label "traefik.enable=true" \
     --label "traefik.docker.network=prosuite" \
